@@ -1,0 +1,71 @@
+  <!-- Preloader -->
+  <!--<div id="preloader">
+    <div id="load"></div>
+  </div>-->
+<!-- Navigation -->
+
+<div class="container-fluid">
+  <div class="container">
+       <nav class="navbar navbar-custom" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Desplegar navegación</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="tel:<?php echo $home[0]['telefono2']?>" onclick="_gaq.push(['_trackEvent', 'Mobile', 'Llamada'])">
+      <!--<?php echo _NOMBRE_EMPRESA ?>-->
+       
+       <?php if($id != 1){ ?>
+          <a class="navbar-brand" href="<?php echo _DOMINIO ?>" title="<?php echo _NOMBRE_EMPRESA ?>"><?php echo _NOMBRE_EMPRESA ?></a>
+        <?php }else{?>
+        <?php echo $home[0]['telefono2']?>   
+        <?php }?>
+    </a>
+  </div>
+ 
+  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+       otro elemento que se pueda ocultar al minimizar la barra -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse" id="menu">
+    <ul class="nav navbar-nav">
+                                      <li class="active"><a href="<?php echo _DOMINIO ?>">Home</a></li>
+                                      <li><a href="<?php echo _DOMINIO?>#about">Quiénes Somos</a></li>                 
+                                      <li><a href="<?php echo _DOMINIO?>productos">Productos</a></li>                  
+                                      <li><a href="<?php echo _DOMINIO?>#contact">Contacto</a></li>
+
+      
+                                      <li class="dropdown">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                          <i class="glyphicon glyphicon-shopping-cart"></i> <b class="caret"></b></a>
+                                          <ul class="dropdown-menu message-dropdown text-left" style="min-width: 300px;padding:10%" id="carritoCont">
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown">
+                                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                          <i class="glyphicon glyphicon-user"></i> <b class="caret"></b></a>
+                                          <ul class="dropdown-menu message-dropdown text-left" style="min-width: 300px;padding:10%">
+                                            <li class="message-preview text-center" style="width: 100%">
+                                            <?php if(!isset($_SESSION['carrito']['persona'])){ ?>
+                                              Ahora puedes<br>
+                                              <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Registrate</a>
+                                              ó
+                                              <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Iniciar Sesión</a><br>
+                                              <?php }else{ ?>
+                                              Bienvenido <strong><?php echo $_SESSION['carrito']['persona']['nombres']." ". $_SESSION['carrito']['persona']['apellidos'] ?></strong><br><br>
+                                              <a href="<?php echo _DOMINIO ?>pedidos" class="btn btn-clear">Mis pedidos</a>
+                                              <a ng-click="cerrarSesion()" class="btn btn-skin btnIrCarro">Cerrar Sesión</a>
+                                              <?php } ?><br>
+                                            </li>
+                                          </ul>
+                                      </li>
+    </ul>
+  </div>
+</nav>
+  </div>
+</div>
+
+   

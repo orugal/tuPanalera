@@ -1,0 +1,41 @@
+body{font-family:'Ubuntu';font-size: 16px}
+.marginCabeza{margin-top:2%;}
+.marginContactoC{margin-top:4%;line-height: 20px;color:#999;}
+
+/*Fondo del banner superior*/
+.bgBanner{background:url(../img/banner.png);min-height: 500px}
+.bgGaleria{background:url(../img/galeria.png);padding:5% 0 5% 0;color:#fff;}
+
+
+.cover{-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;}
+
+
+.parrafoCentral{color:#9D9FA2;}
+
+.tituloNoticias{font-size:2.5em;}
+.marginBanner{margin-top:2%;}
+.marginCentral{margin-top:2%;}
+
+.paddingPie{padding:3% 0 3% 0;}
+.marginMiniNoticias{margin-bottom: 10%;margin-right:5%;}
+.tituloGaleria{font-size:2.5em;}
+
+nav.navbar ul.nav li > a{
+    color:#393C3D;
+}
+
+nav.navbar ul.nav li > a:hover{
+    color:#DC3023;
+}
+ 
+/* cambiar el color de fondo a la barra */
+nav.navbar {
+    color:#393C3D;
+    background: transparent;
+    border: none;
+    box-shadow: none
+}
+nav.navbar ul.nav > .active a{background: transparent;color:#DC3023;box-shadow: none}

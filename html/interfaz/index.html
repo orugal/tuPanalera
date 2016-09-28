@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TCS">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="sEuTsyHYR2KteHlxT5BlsnpF2pw2d0fdKRcjlLdwFmo" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="description" content="<?php echo $info_id[0]['notas']?>" />
+  	<meta name="keywords" content="<?php echo $info_id[0]['keywords']?>" />
+  	<meta name="author" content="The Cupcakes Store" />
+    <title><?php echo _NOMBRE_EMPRESA?> - <?php echo $info_id[0]['titulo']?></title>
+
+    <!-- CSS -->
+    <link href="<?php echo _DOMINIO ?>css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo _DOMINIO ?>font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="<?php echo _DOMINIO ?>css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="<?php echo _DOMINIO ?>css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo _DOMINIO ?>css/owl.carousel.css" rel="stylesheet" media="screen" />
+    <link href="<?php echo _DOMINIO ?>css/owl.theme.css" rel="stylesheet" media="screen" />	
+	<link href="<?php echo _DOMINIO ?>css/animate.css" rel="stylesheet" />
+    <link href="<?php echo _DOMINIO ?>css/style.css" rel="stylesheet">
+	<link href="<?php echo _DOMINIO ?>color/default.css" rel="stylesheet">
+	<link href="<?php echo _DOMINIO ?>css/sweetalert.css" rel="stylesheet">
+	<link rel="shortcut icon" href="<?php echo _DOMINIO ?>images/diseno/favicon.ico">
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-74486910-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+	<script type="text/javascript">
+		var dominio   = "<?php echo _DOMINIO ?>"
+    </script>
+
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '951869778224142',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript">
+    window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='//rec.getsmartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', '6d99d26be9c4e37d64b579979d73545a92bc6af3');
+</script>
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom"  ng-controller="principal" ng-init="initTCS()">
+	<?php include(_PLANTILLAS."interfaz/cabezote.php") ?>
+	
+	
+	<?php include($contenido);?>
+	
+
+	
+	<!-- /Section: contact -->
+	<?php include(_PLANTILLAS."interfaz/pie.php") ?>
+	
+
+    <!-- Core JavaScript Files -->
+    <script src="<?php echo _DOMINIO ?>js/jquery.min.js"></script>
+    <script src="<?php echo _DOMINIO ?>js/jquery.parallax-1.1.3.js"></script>	
+  	<script src="<?php echo _DOMINIO ?>js/jquery.smooth-scroll.min.js"></script>
+    <script src="<?php echo _DOMINIO ?>js/sweetalert.min.js"></script>
+    <script src="<?php echo _DOMINIO ?>js/angular.min.js"></script>
+    <script src="<?php echo _DOMINIO ?>js/app.js"></script>
+    <script src="<?php echo _DOMINIO ?>js/controller.js"></script>
+    <script src="<?php echo _DOMINIO ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo _DOMINIO ?>js/jquery.easing.min.js"></script>	
+	<script src="<?php echo _DOMINIO ?>js/jquery.sticky.js"></script>
+	<script src="<?php echo _DOMINIO ?>js/jquery.scrollTo.js"></script>
+	<script src="<?php echo _DOMINIO ?>js/stellar.js"></script>
+	<script src="<?php echo _DOMINIO ?>js/wow.min.js"></script>
+	<script src="<?php echo _DOMINIO ?>js/owl.carousel.min.js"></script>
+	<script src="<?php echo _DOMINIO ?>js/nivo-lightbox.min.js"></script>
+	
+    <!-- Custom Theme JavaScript -->
+    <script src="<?php echo _DOMINIO ?>js/custom.js"></script>
+    
+
+</body>
+</html>
+<!--<?php include(_PLANTILLAS."interfaz/menu_principal.php") ?>-->

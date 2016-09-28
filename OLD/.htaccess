@@ -1,0 +1,5 @@
+RewriteEngine On
+#ErrorDocument 404 /noPage.php
+
+# Maquillando las url
+RewriteRule ^gracias$ gracias.php
