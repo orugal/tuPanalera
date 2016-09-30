@@ -173,30 +173,19 @@ function tiposid(id)
 		document.getElementById('resumen').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
-		document.getElementById('precio_normal').style.display =	'';
-		document.getElementById('precio_oferta').style.display =	'';
-		document.getElementById('destacado').style.display = '';
-		document.getElementById('canje').style.display = '';
 	}
 	//si es tipo Producto
 	else if(id == 10)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('imagen1_preview').style.display = '';
-		document.getElementById('imagen').style.display = '';
 		document.getElementById('resumen').style.display = '';
-		document.getElementById('adjunto').style.display = '';
-		document.getElementById('asignar').style.display = '';
-		document.getElementById('categorias_asign').style.display = '';
-		document.getElementById('alto').style.display = '';
-		document.getElementById('promocion').style.display = '';
-		document.getElementById('novedad').style.display = '';
-		//document.getElementById('destacado').style.display = '';
-		document.getElementById('permisos').style.display = '';
-		document.getElementById('marca').style.display = '';
+		document.getElementById('imagen').style.display = '';
+		document.getElementById('imagen1_preview').style.display = '';
+		document.getElementById('precio_normal').style.display =	'';
+		document.getElementById('precio_oferta').style.display =	'';
+		document.getElementById('destacado').style.display = '';
 		document.getElementById('canje').style.display = '';
-		document.getElementById('puntoscanje').style.display = '';
 	}
 	//descarga de archivos
 	else if(id == 11)

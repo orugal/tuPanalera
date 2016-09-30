@@ -36,6 +36,7 @@ class Core
 			
 			case  3:
 			case  8:
+			case  9:
 				//categoria catalogo
 				return $this->tipoCategoria();
 			break;
@@ -53,7 +54,7 @@ class Core
 				//lienas catalogo
 				return $this->tipolineas();
 			break;*/
-			case  9:
+			case  10:
 				//lienas catalogo
 				return $this->tipoProducto();
 			break;

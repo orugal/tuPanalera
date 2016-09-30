@@ -58,6 +58,10 @@ if(isset($_GET['type']))
 	{
 		$tipo_contenido	=	_TIPO_LINEA;
 	}
+	elseif($_GET['type']	==	_TIPO_LINEA)
+	{
+		$tipo_contenido	=	_TIPO_PRODUCTO;
+	}
 	elseif($_GET['type']	==	_TIPO_DESCARGA)
 	{
 		$tipo_contenido	=	_TIPO_ARCHIVO;
@@ -125,11 +129,6 @@ if(isset($_GET['type']))
 	elseif($_GET['type']	==	_TIPO_SUBVACANTES)
 	{
 		$tipo_contenido	=	34;
-	}
-	elseif($_GET['type']	==	_TIPO_PRODUCTO)
-	{
-		
-		$tipo_contenido	=	_TIPO_PRODUCTO;
 	}
 	elseif($_GET['type']	==	35)
 	{
@@ -216,6 +215,10 @@ else
 	{
 		$tipo_contenido	=	_TIPO_LINEA;
 	}
+	elseif($tipo	==	_TIPO_LINEA)
+	{
+		$tipo_contenido	=	_TIPO_PRODUCTO;//tipo reseña
+	}
 	elseif($tipo	==	_TIPO_DESCARGA)
 	{
 		$tipo_contenido	=	_TIPO_ARCHIVO;
@@ -283,10 +286,6 @@ else
 	elseif($tipo	==	_TIPO_SUBVACANTES)
 	{
 		$tipo_contenido	=	34;
-	}
-	elseif($tipo	==	_TIPO_PRODUCTO)
-	{
-		$tipo_contenido	=	_TIPO_PRODUCTO;//tipo reseña
 	}
 	elseif($tipo	==	35)
 	{
@@ -750,7 +749,7 @@ $tabla .= '</td>
 							}*/								
 							if($tipo_contenido == 10)
 							{
-								$tabla .=	/*'<td align="center"><b>CODIGO</b></td>'*/ '';
+								$tabla.='<td align="center"><b>SUBIR | BAJAR</b></td>';
 							}
 							else
 							{
@@ -759,15 +758,7 @@ $tabla .= '</td>
 							
 							$tabla.='<td align="center"><b>VISIBLE</b></td>';
 															
-							if($tipo_contenido == 10)
-							{
-								/*$tabla .=	'<td align="center"><b>RESE&Ntilde;AS</b></td>';
-								$tabla	.='	<td colspan="3" align="center"><b>ACCIONES</b></td>';*/
-								$tabla .='<td colspan="2" align="center"><b>VISTA PREVIA</b></td>';
-								$tabla .='<td  align="center"><b>ACCIONES</b></td>';
-							}
-							else
-							{
+							
 								if($tipo_contenido == 3 or  $tipo_contenido == 0 or $tipo_contenido == 5 or $tipo_contenido == 6 or $tipo_contenido == 1  or $tipo_contenido == 40  or $tipo_contenido == 41  or $tipo_contenido == 42  or $tipo_contenido == 43)
 								{
 									$tabla	.=	'<td align="center"><b>SUBCONTENIDOS</b></td>';
@@ -798,7 +789,6 @@ $tabla .= '</td>
 								{
 									$tabla.='<td align="center"><b>SUBCONTENIDOS</b></td>';
 								}
-							}
 							if($tipo_contenido == 17 or  $tipo_contenido == 54)//esto es para poner noticia en el home
 							{
 								$tabla.='<td align="center"><b>HOME</b></td>';
@@ -817,17 +807,10 @@ $tabla .= '</td>
 								
 								$tabla .= '<tr class="center">';
 								$tabla.='<td align="left">'.
-												$rew['titulo'].'('.$rew['orden'].')
+												utf8_encode($rew['titulo']).'('.$rew['orden'].')
 											</td>';
 								
-								if($tipo_contenido == 10)
-								{
-									$tabla.= /*'<td align="center">
-												'.$rew['codproducto'].'
-											</td>'*/'';
-								}
-								else
-								{	
+									
 								$tabla.= '<td align="center">';
 								if($contador!=1)
 								{
@@ -838,7 +821,7 @@ $tabla .= '</td>
 									$tabla.= '<a href="?id='.$id.'&id_orden='.$rew['id'].'&orden='.$rew['orden'].'&acc=b">Bajar</a>';
 								}	
 									$tabla.= '</td>';
-								}
+								
 								//para poner el ojito abierto o cerrado
 								if($rew['visible'] == 1)//abierto
 								{
@@ -851,14 +834,7 @@ $tabla .= '</td>
 									$tabla.='<td align="center">
 												<img src="images/eye_cerrado.png" title="Inactivo">
 											</td>';
-								}	
-								if($tipo_contenido == 9)
-								{				
-									$tabla	.='	<td>
-													
-												</td>';		
-								}
-								elseif($tipo_contenido == 10)
+								}	if($tipo_contenido == 10)
 								{				
 									/*$tabla	.='	<td align="center">
 													<a href="?id='.$rew['id'].'" title="Ver Rese&ntilde;as">
@@ -881,15 +857,8 @@ $tabla .= '</td>
 														Productos Relacionados
 													</a>
 												</td>';	*/
-									$tabla .='<td align="center" colspan="2">
-													<a href="appadmin/ver_video.php?video='.$rew['id'].'" title="'.$rew['titulo'].'" rel="Shadowbox;width=410px;height=310px">
-														Ver Video
-													</a>
-												</td>';
 									$tabla .='<td align="center">
-													<a href="appadmin/ver_comentarios.php?id='.$rew['id'].'" title="Comentarios"  rel="Shadowbox;width=700px;height=500px">
-														Ver Comentarios
-													</a>
+													--
 												</td>';
 								}
 						

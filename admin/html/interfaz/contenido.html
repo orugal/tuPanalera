@@ -87,30 +87,21 @@ function mostrar(dato,caja)
 	<?
 	if($_SESSION['login']['perfil'] == 1)
 	{
-		if($tipo_contenido != 10)
-		{
+		
 			echo "Ud est&aacute; aqui: ";
 			foreach($miga as $info)
 			{
-				if($info['id'] != 10)
-				{
+				
 					if($info['id'] == $id)
 					{
-						echo "<li class='active'>".$info['titulo']."</li>";	
+						echo "<li class='active'>".utf8_encode($info['titulo'])."</li>";	
 					}
 					else
 					{			
-						echo "<li><a href='?id=".$info['id']."'>".$info['titulo']."</a>  </li>";
+						echo "<li><a href='?id=".$info['id']."'>".utf8_encode($info['titulo'])."</a>  </li>";
 					}
-				}
+				
 			}
-		}
-		if($tipo_contenido==10 and isset($_GET['editar']))
-		{
-			echo "Ud est&aacute; aqui: ";
-			echo "<li><a href='?type=10'> Videos </a> </li>";
-			echo "<li  class='active'>".$info_id[0]['titulo']."</li>";
-		}
 	}
 	else
 	{
@@ -173,7 +164,7 @@ else {?>
 					<option value="2" <?if($tipo_contenido == 2){echo 'selected';}?>>Categoria Catalogo</option>
 					<option value="8" <?if($tipo_contenido == 8){echo 'selected';}?>>Subcategoria Catalogo</option>
 					<option value="9" <?if($tipo_contenido == 9){echo 'selected';}?>>Linea</option>
-					<option value="10" <?if($tipo_contenido == 10){echo 'selected';}?>>Video</option>
+					<option value="10" <?if($tipo_contenido == 10){echo 'selected';}?>>Producto</option>
 					<option value="4" <?if($tipo_contenido == 4){echo 'selected';}?>>Galer&iacute;a de Imagenes</option>
 					<option value="21" <?if($tipo_contenido == 21){echo 'selected';}?>>Imagen</option>
 					<option value="6" <?if($tipo_contenido == 6){echo 'selected';}?>>Home</option>

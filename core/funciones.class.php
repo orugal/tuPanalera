@@ -31,12 +31,12 @@ class Funciones
 		{
 			$arreglo	=	array("id"=>($result->fields['id']),
 								  "id_padre"=>$result->fields['id_padre'],
-								  "antetitulo"=>$result->fields['antetitulo'],
-								  "titulo"=>$result->fields['titulo'],
-								  "subtitulo"=>$result->fields['subtitulo'],
-								  "resumen"=>html_entity_decode(nl2br(utf8_encode($result->fields['resumen']))),
-								  "contenido"=>html_entity_decode(nl2br(utf8_encode($result->fields['contenido']))),
-								  "especificaciones"=>html_entity_decode(utf8_encode(nl2br($result->fields['especificaciones']))),
+								  "antetitulo"=>utf8_encode($result->fields['antetitulo']),
+								  "titulo"=>utf8_encode($result->fields['titulo']),
+								  "subtitulo"=>utf8_encode($result->fields['subtitulo']),
+								  "resumen"=>utf8_encode(nl2br($result->fields['resumen'])),
+								  "contenido"=>utf8_encode(nl2br($result->fields['contenido'])),
+								  "especificaciones"=>utf8_encode(nl2br($result->fields['especificaciones'])),
 								  "marca"=>$result->fields['marca'],
 								  "imagen"=>$result->fields['imagen'],
 								  "imagen2"=>$result->fields['imagen2'],
@@ -348,12 +348,12 @@ class Funciones
 
 			$arreglo	=	array("id"=>($result->fields['id']),
 								  "id_padre"=>$result->fields['id_padre'],
-								  "antetitulo"=>$result->fields['antetitulo'],
-								  "titulo"=>$result->fields['titulo'],
-								  "subtitulo"=>$result->fields['subtitulo'],
-								  "resumen"=>html_entity_decode(nl2br($result->fields['resumen'])),
-								  "contenido"=>html_entity_decode(nl2br($result->fields['contenido'])),
-								  "especificaciones"=>html_entity_decode(nl2br($result->fields['especificaciones'])),
+								  "antetitulo"=>utf8_encode($result->fields['antetitulo']),
+								  "titulo"=>utf8_encode($result->fields['titulo']),
+								  "subtitulo"=>utf8_encode($result->fields['subtitulo']),
+								  "resumen"=>(nl2br($result->fields['resumen'])),
+								  "contenido"=>(nl2br($result->fields['contenido'])),
+								  "especificaciones"=>(nl2br($result->fields['especificaciones'])),
 								  "marca"=>$result->fields['marca'],
 								  "imagen"=>$result->fields['imagen'],
 								  "imagen2"=>$result->fields['imagen2'],
@@ -622,7 +622,7 @@ class Funciones
 											//armo los campos a los cuales le insertare la informacion
 											$campos		.=	sprintf("".$key1[0].",");
 											//armo los valores para cada campo
-											$valores	.=	sprintf("'".$info."',");
+											$valores	.=	sprintf("'".utf8_decode($info)."',");
 										}
 									
 									}
@@ -687,7 +687,7 @@ class Funciones
 												}
 											}
 										//armo los campos a los cuales le insertare la informacion
-											$campos		.=	sprintf($key1[0]."='".$info."',");
+											$campos		.=	sprintf($key1[0]."='".utf8_decode($info)."',");
 										}
 									}
 									else
@@ -1310,14 +1310,21 @@ class Funciones
 	}
 	function armaUrl($texto)
 	{
-		$texto  = str_replace("á","a",strtolower($texto));
-		$texto  = str_replace("é","e",$texto);
-		$texto  = str_replace("í","i",$texto);
-		$texto  = str_replace("ó","o",$texto);
-		$texto  = str_replace("ú","u",$texto);
-		$texto  = str_replace("ñ","n",$texto);
-		$texto  = str_replace(" ","-",$texto);
-		return $texto;
+		$nuevo_nombre	=	str_replace('á','a',strtolower($texto));
+		$nuevo_nombre	=	str_replace('é','e',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('í','i',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('ó','o',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('ú','u',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('$','',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('/','',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace(' ','_',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('à','a',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('è','e',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('ì','i',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('ò','o',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('ù','u',$nuevo_nombre);
+		$nuevo_nombre	=	str_replace('ñ','n',$nuevo_nombre);
+		return $nuevo_nombre;
 	}
 	function traerUrl($id)
 	{

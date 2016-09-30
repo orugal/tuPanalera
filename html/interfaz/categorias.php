@@ -17,9 +17,9 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 	  <?php foreach($resursiva as $r){ ?>
 	  		<?php if($r['id'] != 10 && $r['id'] != 1190){ ?>
 		  		<?php if($r['id'] == $id){ ?>
-		  			<li class="active"><?php echo $r['titulo'] ?></li>
+		  			<li class="active"><?php echo utf8_encode($r['titulo'])?></li>
 		  		<?php }else{ ?>
-		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $h['id'] ?>/<?php echo $funciones->armaUrl( $h['titulo'] )?>"><?php echo $r['titulo'] ?></a></li>
+		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $h['id'] ?>/<?php echo $funciones->armaUrl($h['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
 		  		<?php } ?>
 	  		<?php } ?>
 	  <?php } ?>
@@ -33,7 +33,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
             <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
                 <div class="panel panel-default">
                   <div class="panel-body text-center">
-                    <a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $h['id'] ?>/<?php echo $funciones->armaUrl( $h['titulo'] )?>">    
+                    <a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $h['id'] ?>/<?php echo $funciones->armaUrl($h['titulo'])?>">    
                         <img src="<?php echo _DOMINIO ?>images/<?php echo $h['imagen'] ?>" class="img-thumbnail" width="100%" />
                         <strong><?php echo $h['titulo'] ?></strong>
                     </a>
