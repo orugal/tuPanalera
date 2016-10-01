@@ -440,17 +440,10 @@ home.controller('carritoFunction', function($scope,$http,$q,logica)
 		var continua = false;
 		$scope.relleno = $("#relleno").val();
 
-		if(tieneRelleno == 1)
+		if($scope.relleno == "" || $scope.relleno == undefined)
 		{
-			if($scope.relleno == "" || $scope.relleno == undefined)
-			{
-				sweetAlert("Oops...", "Debes seleccionar un relleno", "error");
-				continua = false;
-			}
-			else
-			{
-				continua = true;
-			}
+			sweetAlert("Oops...", "Debes seleccionar la presentación", "error");
+			continua = false;
 		}
 		else
 		{

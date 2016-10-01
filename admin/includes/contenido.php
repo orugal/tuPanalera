@@ -539,8 +539,8 @@ else
 //valido si es nueva
 if(isset($_GET['nueva']))
 {
-	$id_padre			=	(isset($_GET['type']) and $_GET['type'] == 10)?'0':$funciones->obtenerVariable('nueva');
-	$destacado			=	(isset($_POST['destacado']))?$_POST['destacado']:1;
+	$id_padre			=	$funciones->obtenerVariable('nueva');
+	$destacado			=	(isset($_POST['destacado']))?$_POST['destacado']:0;
 	//debo detectar el tipo de contenido que se va a crear
 	$tipo_contenido_1	=	(isset($_GET['type']))?$_GET['type']:$funciones->infoId($id_padre);
 	//detecto el tipo
@@ -671,7 +671,7 @@ $tabla	 =	'
 							<td colspan="7" align="center"><b>'.strtoupper($info[0]['titulo']).' ('.$info[0]['id'].')</b></td>
 						</tr>
 						<tr class="center">
-							<td colspan="5">
+							<td colspan="4">
 								P&aacute;ginas: ';
  
 								if(!$_GET['ver'])
@@ -723,7 +723,7 @@ $tabla	.=	'</td>
 							</div>-->
 					   </td></tr>';
 			}	*/
-				$tabla.='<tr><td colspan="5">';
+				$tabla.='<tr><td colspan="4">';
 $tabla .= '</td>
 				<td align="center" colspan="4">';
 					
@@ -737,7 +737,7 @@ $tabla .= '</td>
 						<tr class="center">';
 							if($tipo_contenido == 10)
 							{
-								$tabla.='<td width="350px" align="center"><b><a href="index.php?type='.$tipo_contenido.'&orden='.base64_encode($orden).'">TITULO</a></b></td>';
+								$tabla.='<td  align="center"><b><a href="index.php?type='.$tipo_contenido.'&orden='.base64_encode($orden).'">TITULO</a></b></td>';
 							}
 							else
 							{

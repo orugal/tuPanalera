@@ -52,7 +52,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 	       		  		<tbody>
 	       		  			<?php foreach($pedido as $lista)
 		       		  		{ 
-		       		  			$cantVenta     =   ($car['canje'] == 0)?12:1;
+		       		  			$cantVenta     =   ($car['canje'] == 0)?1:1;
 		       		  			$totalVentaItem=($lista['precio_normal'] * ($lista['cantidad'] / $cantVenta));
 		       		  			$granTotal += $totalVentaItem;
 		       		  			$cantidades += $lista['cantidad'];
@@ -119,7 +119,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 					  <input name="buyerEmail"    type="hidden"  value="<?php echo $_SESSION['carrito']['persona']['email'] ?>" >
 					  <input name="responseUrl"    type="hidden"  value="http://www.thecupcakesstore.com/confirma.php" >
 					  <input name="confirmationUrl"    type="hidden"  value="http://www.thecupcakesstore.com/confirma2.php" >
-					  <input name="Submit"        type="submit"  value="Ir a pagar"  class="btn btn-skin">
+					  <input name="Submit"        type="submit"  value="Reaizar pedido"  class="btn btn-skin">
 					</form><br>
 					<a href="http://www.payulatam.com/logos/pol.php?l=133&c=56dc9a177084d" target="_blank">
 					<img src="http://www.payulatam.com/logos/logo.php?l=133&c=56dc9a177084d" alt="PayU Latam" border="0" width="100%" /></a>

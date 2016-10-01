@@ -15,11 +15,11 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 	<div class="container">
 	<ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
 	  <?php foreach($resursiva as $r){ ?>
-	  		<?php if($r['id'] != 10 && $r['id'] != 1190){ ?>
+	  		<?php if($r['id'] != 10 ){ ?>
 		  		<?php if($r['id'] == $id){ ?>
 		  			<li class="active"><?php echo utf8_encode($r['titulo'])?></li>
 		  		<?php }else{ ?>
-		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $h['id'] ?>/<?php echo $funciones->armaUrl($h['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
+		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php echo $r['id'] ?>/<?php echo $funciones->armaUrl($r['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
 		  		<?php } ?>
 	  		<?php } ?>
 	  <?php } ?>

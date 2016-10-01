@@ -44,7 +44,7 @@ if(isset($accion))
 				$pintada  	 = "";
 				foreach($carritoData as $car)
 				{
-					$cantVenta     =   ($car['canje'] == 0)?12:1;
+					$cantVenta     =   ($car['canje'] == 0)?1:1;
 					$pintada .= '<li class="message-preview text-left" ng-repeat="car in dataCarrito">
 				                    <div class="media">
 				                        <span class="pull-left">

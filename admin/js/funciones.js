@@ -184,8 +184,11 @@ function tiposid(id)
 		document.getElementById('imagen1_preview').style.display = '';
 		document.getElementById('precio_normal').style.display =	'';
 		document.getElementById('precio_oferta').style.display =	'';
+		document.getElementById('promocion').style.display = '';
 		document.getElementById('destacado').style.display = '';
-		document.getElementById('canje').style.display = '';
+
+		document.getElementById('profundidad').style.display = '';
+		//document.getElementById('canje').style.display = '';
 	}
 	//descarga de archivos
 	else if(id == 11)

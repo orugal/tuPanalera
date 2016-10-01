@@ -127,7 +127,7 @@ if ($mostrar_form == false)
 	}
 	else
 	{	
-		echo '<img src="../images/diseno/slogan.png"  width="100%" style="margin:50px 0 0 0">';
+		//echo '<img src="../images/diseno/slogan.png"  width="100%" style="margin:50px 0 0 0">';
 	}
 }
 else {?>
@@ -222,6 +222,21 @@ else {?>
 		</tr>
 				
 		
+		<tr id="profundidad">
+			<td>
+				Clasificaci&oacute;n el producto
+			</td>
+			<td class="celdas">
+				<!--<input type="text" class="form-control"  name="profundidad" size="20" value="<? echo $profundidad; ?>">-->
+				<select name="profundidad" class="form-control">
+					<option value="1" <?php if($profundidad == 1){?> selected <?php }?>>Pa&ntilde;ales y pa&ntilde;itos</option>
+					<option value="2" <?php if($profundidad == 2){?> selected <?php }?>>Nutrici&oacute;n</option>
+					<option value="3" <?php if($profundidad == 3){?> selected <?php }?>>Jabones l&iacute;quidos</option>
+					<option value="4" <?php if($profundidad == 4){?> selected <?php }?>>Jabones s&oacute;lidos	</option>
+					<option value="5" <?php if($profundidad == 5){?> selected <?php }?>>Ropa</option>
+				</select>
+			</td>
+		</tr>
 		<!-- campos producto -->
 		<tr id="titulo">
 			<td>
@@ -483,14 +498,6 @@ else {?>
 				<input type="text" class="form-control"  name="largo" size="20" value="<? echo $largo; ?>">
 			</td>
 		</tr>
-		<tr id="profundidad">
-			<td>
-				Profundidad
-			</td>
-			<td class="celdas">
-				<input type="text" class="form-control"  name="profundidad" size="20" value="<? echo $profundidad; ?>">
-			</td>
-		</tr>
 		<tr id="puntos">
 			<td>
 				<?if($tipo_contenido == 38){echo "Cantidad de Creditos";}elseif($tipo_contenido == 39){echo "Cantidad de Tiempo.";}else{echo "Cantidad";}?>
@@ -523,11 +530,11 @@ else {?>
 		</tr>
 		<tr id="destacado" style="background:#ccc">
 			<td>
-				Relleno <!-- Destacado -->
+				Mostrar en el home? <!-- Destacado -->
 			</td>
 			<td>
-				<label><input type="radio" name="destacado" size="53" checked  value="0" <?if($destacado==0){echo "checked='checked'";}?>> No</label><br>
-				<label><input type="radio" name="destacado" size="53"  value="1" <?if($destacado==1){echo "checked='checked'";}?>> Si</label><br>
+				<input type="radio" name="destacado" size="53"  value="1" <?if($destacado==1){echo "checked='checked'";}?>> Si
+				<input type="radio" name="destacado" size="53"  value="0" <?if($destacado==0){echo "checked='checked'";}?>> No
 			</td>
 		</tr>
 		<tr id="novedad" style="background:#ccc">
@@ -541,7 +548,7 @@ else {?>
 		</tr>
 		<tr id="promocion" style="background:#ccc">
 			<td>
-				Publico VIP? <!-- Promocion -->
+				Promoci&oacute;n? <!-- Promocion -->
 			</td>
 			<td>
 				<input type="radio" name="promocion"  value="1" <?if($promocion==1){echo "checked='checked'";}?>> Si

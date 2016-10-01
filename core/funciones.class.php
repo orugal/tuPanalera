@@ -60,6 +60,7 @@ class Funciones
 								  "iva"=>$result->fields['iva'],
 								  "direccion"=>$result->fields['direccion'],
 								  "telefono"=>$result->fields['telefono'],
+								  "destacado"=>$result->fields['destacado'],
 								  "telefono2"=>$result->fields['telefono2'],
 								  "mail"=>$result->fields['mail'],
 								  "horarios"=>$result->fields['horarios'],

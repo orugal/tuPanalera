@@ -53,7 +53,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 	       		  		<tbody>
 	       		  			<?php foreach($pedido as $lista)
 		       		  		{ 
-		       		  			$cantVenta     =   ($car['canje'] == 0)?12:1;
+		       		  			$cantVenta     =   ($car['canje'] == 0)?1:1;
 		       		  			$totalVentaItem=($lista['precio_normal'] * ($lista['cantidad'] / $cantVenta));
 		       		  			$granTotal += $totalVentaItem;
 		       		  			$cantidades += $lista['cantidad'];

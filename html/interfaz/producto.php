@@ -10,19 +10,50 @@ global $id;
 $info_id	=	$core->info_id;
 $hijos		=	$core->info_id_hijos;
 $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
-$valDef     =   ($info_id[0]['canje'] == 0)?12:1;
+$valDef     =   ($info_id[0]['canje'] == 0)?1:1;
 $txtVenta   =   ($info_id[0]['canje'] == 0)?"Este producto solo se vende por docena":"Este producto se vende por unidad";
 $tieneRelleno	=	($info_id[0]['destacado'] == 1)?1:0;
+
+//pañales
+$presentaciones[1][] = "Paquete X 30";
+$presentaciones[1][] = "Paquete X 60";
+$presentaciones[1][] = "Paquete X 100";
+
+//nutrición
+$presentaciones[2][] = "500 Gramos";
+$presentaciones[2][] = "750 Gramos";
+$presentaciones[2][] = "1500 Gramos";
+
+//cuidado liquido
+$presentaciones[3][] = "1 Litro";
+$presentaciones[3][] = "2 Litros";
+$presentaciones[3][] = "3 Litros";
+
+//cuidado solido
+$presentaciones[4][] = "200 Gramos";
+$presentaciones[4][] = "100 Gramos";
+$presentaciones[4][] = "150 Gramos";
+
+
+//ropa
+$presentaciones[5][] = "Talla 6";
+$presentaciones[5][] = "Talla 8";
+$presentaciones[5][] = "Talla 10";
+$presentaciones[5][] = "Talla 12";
+
+
+
+
 ?>
 <div class="container-fluid" >
 	<div class="container">
 	<ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
 	  <?php foreach($resursiva as $r){ ?>
-	  		<?php if($r['id'] != 10 && $r['id'] != 1190){ ?>
+	  		<?php if($r['id'] != 10){ ?>
 		  		<?php if($r['id'] == $id){ ?>
-		  			<li class="active"><?php echo $r['titulo'] ?></li>
+		  			<li class="active"><?php echo utf8_decode($r['titulo']) ?></li>
 		  		<?php }else{ ?>
-		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $r['id'] ?>/<?php echo $funciones->armaUrl( $r['titulo'] )?>"><?php echo $r['titulo'] ?></a></li>
+		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $r['id'] ?>/<?php echo $funciones->armaUrl( $r['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
 		  		<?php } ?>
 	  		<?php } ?>
 	  <?php } ?>
@@ -45,20 +76,17 @@ $tieneRelleno	=	($info_id[0]['destacado'] == 1)?1:0;
        		  	</h3>
        		  	<p><?php echo $info_id[0]['resumen'] ?></p>
        		  	* <span class="small"><?php echo $txtVenta ?></span><br><br>
-       		  	<?php if($info_id[0]['destacado'] == 1){ ?>
+
        		  		<div class="form-group">
-                      <label for="name">Selecciona el relleno</label><br>
-	       		  	<select name="relleno" id="relleno" ng-model="relleno" class="form-control" style="float: left;width: auto">
-	       		  		<option value="">Escoge un relleno</option>
-	       		  		<option value="1">Arequipe</option>
-	       		  		<option value="2">Chocolate</option>
-	       		  		<option value="3">Nutella</option>
-	       		  		<option value="4">Salsa de fresa</option>
-	       		  		<option value="5">Salsa de mora</option>
-	       		  		<option value="6">Salsa de pi&ntilde;a</option>
-	       		  	</select>
+                      <label for="name">Presentaci&oacute;n</label><br>
+		       		  <select name="relleno" id="relleno" ng-model="relleno" class="form-control" style="float: left;width: auto">
+		       		  		<option value="">Seleccione...</option>
+		       		  		<?php foreach($presentaciones[$info_id[0]['profundidad']] as $pres){ ?>
+		       		  			<option value="<?php echo $pres ?>"><?php echo $pres ?></option>
+		       		  		<?php } ?>
+		       		  </select>
+
 	       		  	</div>
-       		  	<?php } ?>
        		  	<br><br>
        		  	<div style="float: left;width: 100%">
 	       		  	<button type="button" class="btn btn-skin" id="addTocar" ng-click="addToCar()" style="float:left;margin:0 3% 0 0">Agregar al carrito</button>
