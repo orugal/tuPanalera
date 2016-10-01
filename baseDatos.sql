@@ -1,20 +1,3 @@
-/*
-SQLyog - Free MySQL GUI v5.17
-Host - 5.6.26 : Database - tupanalera
-*********************************************************************
-Server version : 5.6.26
-*/
-
-SET NAMES utf8;
-
-SET SQL_MODE='';
-
-create database if not exists `tupanalera`;
-
-USE `tupanalera`;
-
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
 
 /*Table structure for table `atributos` */
 
@@ -512,6 +495,3 @@ CREATE TABLE `vista_links` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `vista_links` */
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
