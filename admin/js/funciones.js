@@ -74,7 +74,7 @@ function tiposid(id)
 	{
 		campos('none');
 		document.getElementById('titulo').style.display = '';
-		document.getElementById('antetitulo').style.display = '';
+		//document.getElementById('antetitulo').style.display = '';
 		document.getElementById('descripcion').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';

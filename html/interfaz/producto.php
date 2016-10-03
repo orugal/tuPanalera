@@ -78,6 +78,18 @@ $presentaciones[5][] = "Talla 12";
        		  	* <span class="small"><?php echo $txtVenta ?></span><br><br>
 
        		  		<div class="form-group">
+       		  		  <?php 
+       		  		  //etapas sólo para pañales
+       		  		  if($info_id[0]['profundidad'] == 1){ ?>	
+       		  		  	  <label for="name">Etapa</label><br>
+			       		  <select name="etapa" id="etapa" ng-model="etapa" class="form-control" style="float: left;width: auto">
+			       		  		<option value="">Seleccione...</option>
+			       		  		<option value="1">Etapa 1</option>
+			       		  		<option value="2">Etapa 2</option>
+			       		  		<option value="3">Etapa 3</option>
+			       		  </select><br><br>
+       		  		  <?php } ?>
+
                       <label for="name">Presentaci&oacute;n</label><br>
 		       		  <select name="relleno" id="relleno" ng-model="relleno" class="form-control" style="float: left;width: auto">
 		       		  		<option value="">Seleccione...</option>
