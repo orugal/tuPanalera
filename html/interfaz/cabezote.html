@@ -1,95 +1,96 @@
-<div class="container-fluid transUpper">
-  <div class="container">
-       <nav class="navbar navbar-custom" role="navigation">
-            <div class="collapse navbar-collapse navbar-ex1-collapse left" id="menu">
-              <ul class="nav navbar-nav flotaLeft">
-                  <li><a href="<?php echo _DOMINIO?>#about">Quiénes Somos</a></li>                 
-                  <li><a href="<?php echo _DOMINIO?>productos">Productos</a></li>                  
-                  <li><a href="<?php echo _DOMINIO?>#contact">Contacto</a></li>
-                  <div class="navbar-right" style="margin:1% 0 0 0;float: right">
-                      (57 1) 301 351 3806 &nbsp;
-                      <i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;
-                      <i class="fa fa-instagram" aria-hidden="true"></i>&nbsp;
-                      <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                  </div>
-              </ul>
-        </div>
-      </nav>
-  </div>
-</div>
-
-
-
-<div class="container-fluid transUpper">
-  <div class="container">
-      <div class="row">
-          <div class="col-md-8 col-lg-8 col-xs-12 col-sm-12">
-              <a href="<?php echo _DOMINIO?>"><img src="<?php echo _DOMINIO?>images/diseno/logoWeb.png" width="40%"/></a>
+<div class="container-fluid bgPrincipal" style="padding: 0">
+  <div class="container-fluid transUpper">
+    <div class="container">
+         <nav class="navbar navbar-custom" role="navigation">
+              <div class="collapse navbar-collapse navbar-ex1-collapse left" id="menu">
+                <ul class="nav navbar-nav flotaLeft">
+                    <li><a href="<?php echo _DOMINIO?>#about">Quiénes Somos</a></li>                 
+                    <li><a href="<?php echo _DOMINIO?>productos">Productos</a></li>                  
+                    <li><a href="<?php echo _DOMINIO?>#contact">Contacto</a></li>
+                    <div class="navbar-right" style="margin:1% 0 0 0;float: right">
+                        (57 1) 301 351 3806 &nbsp;
+                        <i class="fa fa-whatsapp" aria-hidden="true"></i>&nbsp;
+                        <i class="fa fa-instagram" aria-hidden="true"></i>&nbsp;
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    </div>
+                </ul>
           </div>
-          <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12"> 
-              <div class="dropdown"  style="margin:6% 0 0 0;float:right;position: relative">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="margin:0 10% 0 0;padding:15% 20% !important;background: #f0f0f0;border:1px solid #d7d7d7">
-                    <i class="glyphicon glyphicon-user"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown text-left" style="min-width: 300px;padding:10%;right:0;border:none">
-                      <li class="message-preview text-center" style="width: 100%">
-                      <?php if(!isset($_SESSION['carrito']['persona'])){ ?>
-                        Ahora puedes<br>
-                        <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Registrate</a>
-                        ó
-                        <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Iniciar Sesión</a><br>
-                        <?php }else{ ?>
-                        Bienvenido <strong><?php echo $_SESSION['carrito']['persona']['nombres']." ". $_SESSION['carrito']['persona']['apellidos'] ?></strong><br><br>
-                        <a href="<?php echo _DOMINIO ?>pedidos" class="btn btn-clear">Mis pedidos</a>
-                        <a ng-click="cerrarSesion()" class="btn btn-skin btnIrCarro">Cerrar Sesión</a>
-                        <?php } ?><br>
-                      </li>
+        </nav>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid transUpper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
+                <a href="<?php echo _DOMINIO?>"><img src="<?php echo _DOMINIO?>images/diseno/logoWeb.png" width="40%"/></a>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12"> 
+
+                 <div class="dropdown" style="margin:15% 5% 0 0;background: #f0f0f0;border:1px solid #d7d7d7;float: left">
+                  <a class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin:0 10% 0 0; !important;"><i class="fa fa-shopping-bag fa-1x" aria-hidden="true"></i>&nbsp;<b class="caret"></b></a>
+                  <ul class="dropdown-menu message-dropdown text-right" style="min-width: 300px;padding:10%;right:0;border:none" id="carritoCont">
                     </ul>
-              </div>
+                </div>
 
+                <div class="dropdown" style="margin:15% 5% 0 0;background: #f0f0f0;border:1px solid #d7d7d7;float: left">
+                  <a class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin:0 10% 0 0; !important;"><i class="glyphicon glyphicon-user"></i>&nbsp;<b class="caret"></b></a>
+                  <ul class="dropdown-menu message-dropdown text-left" style="min-width: 300px;padding:10%;right:0;border:none">
+                        <li class="message-preview text-center" style="width: 100%">
+                        <?php if(!isset($_SESSION['carrito']['persona'])){ ?>
+                          Ahora puedes<br>
+                          <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Registrate</a>
+                          ó
+                          <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Iniciar Sesión</a><br>
+                          <?php }else{ ?>
+                          Bienvenido <strong><?php echo $_SESSION['carrito']['persona']['nombres']." ". $_SESSION['carrito']['persona']['apellidos'] ?></strong><br><br>
+                          <a href="<?php echo _DOMINIO ?>pedidos" class="btn btn-clear">Mis pedidos</a>
+                          <a ng-click="cerrarSesion()" class="btn btn-skin btnIrCarro">Cerrar Sesión</a>
+                          <?php } ?><br>
+                        </li>
+                      </ul>
+                </div>
 
-
-             <div class="dropdown" style="margin:6% 0 0 0;float:right;position: relative">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="margin:0 10% 0 0;padding:15% 20% !important;background: #f0f0f0;border:1px solid #d7d7d7">
-                  <i class="fa fa-shopping-bag fa-1x" aria-hidden="true"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown text-right" style="min-width: 300px;padding:10%;right:0;border:none" id="carritoCont">
-                  </ul>
-              </div>  
-          </div>
-      </div>
-  </div>  
-</div>
-
-<div class="container-fluid transUpper" style="padding:2% 0 0 0">
-  <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
-            <!-- btn 1-->
-              <center><a class="btn btn-primary btn1" href="<?php echo _DOMINIO?>productos/1314/panales_panitos" id="dropdownMenuButton">
-                PAÑALES Y PAÑITOS
-              </a></center>
+            </div>
         </div>
-        <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
-            <!-- btn 1-->
-              <center><a class="btn btn-primary btn2" href="<?php echo _DOMINIO?>producto/1339/nutricion_intantil" id="dropdownMenuButton">
-                NUTRICIÓN INFANTIL
-              </a></center>
-        </div>
-        <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
-            <!-- btn 1-->
-              <center><a class="btn btn-primary btn3" href="<?php echo _DOMINIO?>producto/1340/cuidado_infantil" id="dropdownMenuButton">
-                CUIDADO Y INFANTIL
-              </a></center>
-        </div>
-        <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
-            <!-- btn 1-->
-              <center><a class="btn btn-primary btn4" href="<?php echo _DOMINIO?>producto/1341/ropa_infantil" id="dropdownMenuButton">
-                ROPA Y ACCESORIOS
-              </a></center>
-        </div>
-
-      </div>
-
+    </div>  
   </div>
+
+  <div class="container-fluid transUpper" style="padding:2% 0 0 0">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
+              <!-- btn 1-->
+                <center><a class="btnBig btn btn-primary btn1" href="<?php echo _DOMINIO?>productos/1314/panales_panitos" id="dropdownMenuButton">
+                  PAÑALES Y PAÑITOS
+                </a></center>
+          </div>
+          <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
+              <!-- btn 1-->
+                <center><a class="btnBig btn btn-primary btn2" href="<?php echo _DOMINIO?>producto/1339/nutricion_intantil" id="dropdownMenuButton">
+                  NUTRICIÓN INFANTIL
+                </a></center>
+          </div>
+          <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
+              <!-- btn 1-->
+                <center><a class="btnBig btn btn-primary btn3" href="<?php echo _DOMINIO?>producto/1340/cuidado_infantil" id="dropdownMenuButton">
+                  CUIDADO Y INFANTIL
+                </a></center>
+          </div>
+          <div class="col-sm-12 col-xs-12 col-md-4 col-lg-3">
+              <!-- btn 1-->
+                <center><a class="btnBig btn btn-primary btn4" href="<?php echo _DOMINIO?>producto/1341/ropa_infantil" id="dropdownMenuButton">
+                  ROPA Y ACCESORIOS
+                </a></center>
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+
 </div>
 
 <?php if($id == 1){?>

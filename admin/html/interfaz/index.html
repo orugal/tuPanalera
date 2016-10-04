@@ -13,12 +13,13 @@
 	<head>
 		<title>Ingreso al Sistema</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
 		<link rel="stylesheet" href="<?php echo _DOMINIO ?>css/bootstrap.min.css" />
 		<link rel="stylesheet" href="<?php echo _DOMINIO ?>css/bootstrap-theme.min.css" />
 	<style>
-		/*body{font-family:Arial;background:#fff;margin:0;padding:0;overflow:none;color:#FFF}
-		#login{margin:auto;padding:0;width:982px;}
+		body{font-family:'Open Sans';background:url(../images/diseno/fondo.png);margin:0;padding:0;overflow:none;color:#444}
+		/*#login{margin:auto;padding:0;width:982px;}
 		#contenedor{padding:80px 0 0 350px;width:300px;color:#fff}
 		.nombres{color:#1E1815;float:left;width:300px;margin:0 0 5px 0;font-weight: bold;font-size: 0.9em}
 		.cajas{float:right;width:300px;}
@@ -26,15 +27,16 @@
 		.contBoton{width:300px;float:left;margin:0 0 10px 0}
 		.logo{width:300px;float:left;margin:0 0 30px 0;text-align:center}
 		.boton{padding:3px 10px 3px 10px;background:#333;}*/
+
 	</style>	
 	</head>
 	<body>
-		<div class="container-fluid" style="margin:10% 0 0 0">
+		<div class="container-fluid" style="margin:10% 0 0 0;">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
 					</div>
-					<div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
+					<div class="col-sm-12 col-xs-12 col-md-4 col-lg-4" style="background: #fff;padding: 5%;box-shadow: 0px 0px 5px #999;border-radius:5px">
 						<?php
 							include("includes/login.php");
 						?>

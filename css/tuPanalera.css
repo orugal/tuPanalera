@@ -1,6 +1,6 @@
-body{font-family: 'Open Sans', sans-serif;font-size: 16px;background: url(../images/diseno/fondo.png)}
+body{font-family: 'Open Sans', sans-serif;font-size: 16px}
 
-.bgPrincipal{}
+.bgPrincipal{background:url(../images/diseno/fondo.png),rgba(255,255,255,.6)}
 .flotaLeft{text-align: left !important;}
 .panelCentral{margin:5% 0 0 0;background: #fff;padding: 2%;border-radius: 3px}
 .navbar-custom ul.nav li a{text-transform: capitalize;font-weight: normal}
@@ -19,6 +19,47 @@ background-size: cover;}
 .btn2{background: #4bae4f;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
 .btn3{background: #fec006;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
 .btn4{background: #f34235;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
+
+.btn1:hover {
+  background: rgba(0,0,0,0);
+  color: #00bbd3 !important;
+  box-shadow: inset 0 0 0 3px #00bbd3;
+}
+.btn2:hover {
+  background: rgba(0,0,0,0);
+  color: #4bae4f !important;
+  box-shadow: inset 0 0 0 3px #4bae4f;
+}
+.btn3:hover {
+  background: rgba(0,0,0,0);
+  color: #fec006 !important;
+  box-shadow: inset 0 0 0 3px #fec006;
+}
+.btn4:hover {
+  background: rgba(0,0,0,0);
+  color: #f34235 !important;
+  box-shadow: inset 0 0 0 3px #f34235;
+}
+
+
+
+
+
+/*
+.btnBig{
+ transform-style: preserve-3d;
+}
+
+.btnBig:after {
+ top: -100%;
+ left: 0px;
+ width: 100%;
+ position: absolute;
+ content: 'Flipped';
+ transform-origin: left bottom;
+ transform: rotateX(90deg);
+}*/
+
 
 
 label{color:#444;}
