@@ -1,0 +1,25 @@
+body{font-family: 'Open Sans', sans-serif;font-size: 16px;background: url(../images/diseno/fondo.png)}
+
+.bgPrincipal{}
+.flotaLeft{text-align: left !important;}
+.panelCentral{margin:5% 0 0 0;background: #fff;padding: 2%;border-radius: 3px}
+.navbar-custom ul.nav li a{text-transform: capitalize;font-weight: normal}
+.nav.navbar-nav{background: transparent;}
+
+.bgWhite{background: #fff}
+.bgBlue{background: #00bbd3}
+
+.bgBanner{background: #fff url(../images/diseno/lines.png) repeat-x left bottom;padding-bottom: 2%}
+.transUpper{background: rgba(255,255,255,.6)}
+.cover{-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;}
+.btn1{background: #00bbd3;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
+.btn2{background: #4bae4f;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
+.btn3{background: #fec006;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
+.btn4{background: #f34235;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
+
+
+label{color:#444;}
+footer p{color:#444;}

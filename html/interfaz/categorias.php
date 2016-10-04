@@ -11,7 +11,7 @@ $info_id	=	$core->info_id;
 $hijos		=	$core->info_id_hijos;
 $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 ?>
-<div class="container-fluid" >
+<div class="container-fluid" style="background: #fff">
 	<div class="container">
 	<ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
 	  <?php foreach($resursiva as $r){ ?>
@@ -26,7 +26,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 	</ol>
 	</div>
 </div>
-<div class="container-fluid" style="padding: 5% 0 5% 0">
+<div class="container-fluid" style="padding: 5% 0 5% 0;background: #fff">
     <div class="container">
         <div class="row">
         <?php foreach($hijos as $h){ ?>

@@ -45,7 +45,7 @@ $presentaciones[5][] = "Talla 12";
 
 
 ?>
-<div class="container-fluid" >
+<div class="container-fluid" style="background: #fff">
 	<div class="container">
 	<ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
 	  <?php foreach($resursiva as $r){ ?>
@@ -60,7 +60,7 @@ $presentaciones[5][] = "Talla 12";
 	</ol>
 	</div>
 </div>
-<div class="container-fluid" style="padding: 5% 0 5% 0" ng-controller="carritoFunction" ng-init="carritoIni()">
+<div class="container-fluid" style="padding: 5% 0 5% 0;background: #fff" ng-controller="carritoFunction" ng-init="carritoIni()">
     <div class="container">
         <div class="row">
        		  <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">

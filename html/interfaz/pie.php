@@ -6,7 +6,7 @@
   ?>
   <?php if($id == 1){ ?>
   <!-- Section: contact -->
-    <section id="contact" class="home-section text-center">
+    <section id="contact" class="home-section text-center bgBlue" style="color:#fff">
     <div class="heading-contact">
       <div class="container">
       <div class="row">
@@ -14,7 +14,7 @@
           
           <div class="section-heading">
           <div class="wow bounceInDown" data-wow-delay="0.4s">
-          <h2>Ponte en contacto con nosotros</h2>
+          <h2 style="color:#fff">Ponte en contacto con nosotros</h2>
           </div>
           <p class="wow lightSpeedIn" data-wow-delay="0.3s">Déja tu información y pronto te estaremos contactando.</p>
           </div>
@@ -23,7 +23,7 @@
       </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container-fluid ">
 
     <div class="row">
         <div class="col-lg-8 col-md-offset-2">
@@ -45,15 +45,6 @@
                                 Teléfono</label>
                                 <input type="number" ng-click="desactivaError()" class="form-control" id="telefono" name="telefono" ng-model="telefono" placeholder="Tu número telefónico" />
                         </div>
-                        <div class="form-group">
-                            <label for="subject">
-                                Asunto</label>
-                            <select id="asunto" ng-click="desactivaError()" name="asunto" ng-model="asunto" class="form-control" >
-                                <option value="">Seleccione...</option>
-                                <option value="Cotización">Cotización productos</option>
-                                <option value="Sugerencia">Sugerencias</option>
-                            </select>
-                        </div>
           
              
                         <div class="form-group">
@@ -73,7 +64,7 @@
                 </form>
         
             </div>
-      <div class="text-center">
+     <!-- <div class="text-center">
           <?php if($home[0]['telefono2'] != ""){?>
             <p class="lead"><i class="fa fa-phone"></i> Llámanos 
             <a href="tel:<?php echo $home[0]['telefono2']?>" onclick="_gaq.push(['_trackEvent', 'Mobile', 'Llamada'])"><?php echo $home[0]['telefono2']?></a>
@@ -84,13 +75,8 @@
           <a title="sigue a The Cupcakes Store en Twitter" href="https://twitter.com/thcupcakesstore/" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/twitter.png" /></a>
           <a title="sigue a The Cupcakes Store en Facebook" href="https://www.facebook.com/thcupcakesstore/" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/facebook.png" /></a><br><br>
           
-          <!--<a href="http://www.payulatam.com/logos/pol.php?l=133&c=56dc9a177084d" target="_blank" class="visible-sm visible-xs">
-          <img src="http://www.payulatam.com/logos/logo.php?l=133&c=56dc9a177084d" alt="PayU Latam" border="0" width="100%" /></a>
 
-          <a href="http://www.payulatam.com/logos/pol.php?l=133&c=56dc9a177084d" target="_blank" class="visible-lg visible-md">
-          <img src="http://www.payulatam.com/logos/logo.php?l=133&c=56dc9a177084d" alt="PayU Latam" border="0" /></a>-->
-
-      </div>
+      </div>-->
         </div>
 
     </div>  
@@ -99,7 +85,7 @@
   </section>
 
   <?php } ?>
-<footer>
+<footer style="color:#444 !important;background: #fff">
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-12">

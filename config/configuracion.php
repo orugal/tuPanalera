@@ -26,7 +26,7 @@ define('_RUTA_ABSOLUTA'										,$ruta_absoluta);		//Ruta relativa del portal e
 //Carpetas
 define('_PLANTILLAS'	                                 	,$ruta_absoluta.'html/');			//Url desde el navegador
 define('_NOMBRE_EMPRESA'	                                ,'Tu Pa&ntilde;alera');			//Url desde el navegador
-define('_DOMINIO'	                     		           ,'http://www.tupanalera.com/tuPanalera/');			//local
+define('_DOMINIO'	                     		           ,'http://192.168.1.12/tuPanalera/');			//local
 //define('_DOMINIO'	                     		           ,'http://www.tucomunidad.co/hippie/2015/');			//produccion
 
 
@@ -38,11 +38,11 @@ define('_API_KEY','Ho8bIis1W72W2kz9ZLLZG494Fw');//en menu principal
 //Nombre del hosting
 define('_HOST'											,'localhost');
 //Usuario base de datos
-define('_USER'											,'tupanale_user');
+define('_USER'											,'root');
 //Contraseña del usuario
-define('_PASS'											,'Jg$E3D+u');
+define('_PASS'											,'');
 //base de datos
-define('_DB'											,'tupanale_panalera');
+define('_DB'											,'tupanalera');
 
 //DATOS DE ENVIO DE CORREOS
 define('_DIR_PLUGIN'									,'core/phpmailer/');
