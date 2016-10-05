@@ -174,6 +174,15 @@ function tiposid(id)
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
 	}
+	//si es sublinea
+	else if(id == 61)
+	{
+		campos('none');
+		document.getElementById('titulo').style.display = '';
+		document.getElementById('resumen').style.display = '';
+		document.getElementById('imagen').style.display = '';
+		document.getElementById('imagen1_preview').style.display = '';
+	}
 	//si es tipo Producto
 	else if(id == 10)
 	{

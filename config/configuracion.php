@@ -26,7 +26,7 @@ define('_RUTA_ABSOLUTA'										,$ruta_absoluta);		//Ruta relativa del portal e
 //Carpetas
 define('_PLANTILLAS'	                                 	,$ruta_absoluta.'html/');			//Url desde el navegador
 define('_NOMBRE_EMPRESA'	                                ,'Tu Pa&ntilde;alera');			//Url desde el navegador
-define('_DOMINIO'	                     		           ,'http://192.168.0.12:8081/tupanalera/');			//local
+define('_DOMINIO'	                     		           ,'http://192.168.1.12/tupanalera/');			//local
 //define('_DOMINIO'	                     		           ,'http://www.tucomunidad.co/hippie/2015/');			//produccion
 
 

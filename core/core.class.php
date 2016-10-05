@@ -37,7 +37,7 @@ class Core
 			case  3:
 			case  8:
 			case  9:
-			
+			case  61:
 			case  2:
 				//categoria catalogo
 				return $this->tipoCategoria();

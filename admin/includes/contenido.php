@@ -60,6 +60,10 @@ if(isset($_GET['type']))
 	}
 	elseif($_GET['type']	==	_TIPO_LINEA)
 	{
+		$tipo_contenido	=	61;
+	}
+	elseif($_GET['type']	==	61)
+	{
 		$tipo_contenido	=	_TIPO_PRODUCTO;
 	}
 	elseif($_GET['type']	==	_TIPO_DESCARGA)
@@ -217,7 +221,11 @@ else
 	}
 	elseif($tipo	==	_TIPO_LINEA)
 	{
-		$tipo_contenido	=	_TIPO_PRODUCTO;//tipo reseña
+		$tipo_contenido	=	61;
+	}
+	elseif($tipo	==	61)
+	{
+		$tipo_contenido	=	_TIPO_PRODUCTO;
 	}
 	elseif($tipo	==	_TIPO_DESCARGA)
 	{
