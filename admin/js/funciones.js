@@ -196,6 +196,7 @@ function tiposid(id)
 		document.getElementById('promocion').style.display = '';
 		document.getElementById('destacado').style.display = '';
 
+		document.getElementById('atributos').style.display = '';
 		document.getElementById('profundidad').style.display = '';
 		//document.getElementById('canje').style.display = '';
 	}

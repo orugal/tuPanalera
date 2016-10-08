@@ -988,14 +988,7 @@ foreach($resultUsuarios as $relUsers)
 	array_push($salidaUsuarios,$dataSalida1);
 }
 //traigo los atributos del producto que esta en este momento siendo visiado
-$query_atributos	=	$db->Execute(sprintf("SELECT * FROM atributos WHERE producto=%s",$id));
-$atributos			=	array();
-//recorro la info
-while(!$query_atributos->EOF)
-{
-	array_push($atributos,$query_atributos->fields);
-	$query_atributos->MoveNext();
-}
+$atributos	=	$db->GetAll(sprintf("SELECT * FROM atributos WHERE producto=%s",$id));
 //var_dump($atributos);
 //productos relacionados
 $query_relacionados	=	$db->Execute(sprintf("SELECT * FROM productos_relacionados AS r , principal AS p WHERE r.id=%s  AND p.id=r.id_padre",$id));

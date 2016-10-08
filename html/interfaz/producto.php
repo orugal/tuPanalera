@@ -11,9 +11,23 @@ $info_id	=	$core->info_id;
 $hijos		=	$core->info_id_hijos;
 $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 $valDef     =   ($info_id[0]['canje'] == 0)?1:1;
-$txtVenta   =   ($info_id[0]['canje'] == 0)?"Este producto solo se vende por docena":"Este producto se vende por unidad";
+$txtVenta   =   "
+					* El pago del producto se realiza contra entrega.</br>
+					* Si el pedido se realiza en las antes de las 10 AM se entragr&aacute; en las horas de la tarde.</br>
+					* Si el pedido se realiza en las horas de la tarde este se entregar&aacute; al d&iacute;a siguiente en la ma&ntilde;ana.</br>
+					";
 $tieneRelleno	=	($info_id[0]['destacado'] == 1)?1:0;
 
+
+
+$queryAtributos = $db->GetAll(sprintf("SELECT * FROM atributos WHERE producto = %s",$id));
+
+//para las presentaciones
+
+$presentaciones  = explode(",",$queryAtributos[0]['presentacion']);
+
+
+/*
 //pañales
 $presentaciones[1][] = "Paquete X 30";
 $presentaciones[1][] = "Paquete X 60";
@@ -39,7 +53,7 @@ $presentaciones[4][] = "150 Gramos";
 $presentaciones[5][] = "Talla 6";
 $presentaciones[5][] = "Talla 8";
 $presentaciones[5][] = "Talla 10";
-$presentaciones[5][] = "Talla 12";
+$presentaciones[5][] = "Talla 12";*/
 
 
 
@@ -51,7 +65,7 @@ $presentaciones[5][] = "Talla 12";
 	  <?php foreach($resursiva as $r){ ?>
 	  		<?php if($r['id'] != 10){ ?>
 		  		<?php if($r['id'] == $id){ ?>
-		  			<li class="active"><?php echo utf8_decode($r['titulo']) ?></li>
+		  			<li class="active"><?php echo utf8_encode($r['titulo']) ?></li>
 		  		<?php }else{ ?>
 		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $r['id'] ?>/<?php echo $funciones->armaUrl( $r['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
 		  		<?php } ?>
@@ -75,15 +89,14 @@ $presentaciones[5][] = "Talla 12";
        		  		<?php } ?>
        		  	</h3>
        		  	<p><?php echo $info_id[0]['resumen'] ?></p>
-       		  	* <span class="small"><?php echo $txtVenta ?></span><br><br>
-
+       		  	<span class="small"><?php echo $txtVenta ?></span><br><br>
        		  		<div class="form-group">
        		  			<div class="row">
        		  				<div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
 			                      <label for="name">Presentaci&oacute;n</label><br>
 					       		  <select name="relleno" id="relleno" ng-model="relleno" class="form-control" style="float: left;width: auto">
 					       		  		<option value="">Seleccione...</option>
-					       		  		<?php foreach($presentaciones[$info_id[0]['profundidad']] as $pres){ ?>
+					       		  		<?php foreach($presentaciones as $pres){ ?>
 					       		  			<option value="<?php echo $pres ?>"><?php echo $pres ?></option>
 					       		  		<?php } ?>
 					       		  </select>

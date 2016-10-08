@@ -230,7 +230,8 @@ else {?>
 			<td class="celdas">
 				<!--<input type="text" class="form-control"  name="profundidad" size="20" value="<? echo $profundidad; ?>">-->
 				<select name="profundidad" class="form-control">
-					<option value="1" <?php if($profundidad == 1){?> selected <?php }?>>Pa&ntilde;ales y pa&ntilde;itos</option>
+					<option value="1" <?php if($profundidad == 1){?> selected <?php }?>>Pa&ntilde;ales</option>
+					<option value="6" <?php if($profundidad == 6){?> selected <?php }?>>Pa&ntilde;itos</option>
 					<option value="2" <?php if($profundidad == 2){?> selected <?php }?>>Nutrici&oacute;n</option>
 					<option value="3" <?php if($profundidad == 3){?> selected <?php }?>>Jabones l&iacute;quidos</option>
 					<option value="4" <?php if($profundidad == 4){?> selected <?php }?>>Jabones s&oacute;lidos	</option>
@@ -855,9 +856,9 @@ else {?>
 			<td colspan="2">
 				<?if($tipo_contenido == 10 and $editar	==	true){?>
 				<div style='background:#999;color:#fff;text-align:center'>
-					<b>
-						ATRIBUTOS DEL PRODUCTO
-					</b>
+					
+						<h2>ATRIBUTOS DEL PRODUCTO</h2>
+					
 				</div>
 					<div style="overflow:auto;height:170px;">
 					<script>
@@ -886,7 +887,7 @@ else {?>
 					 #mi_tabla th{text-align:left}
 					</style>
 					<?=$final?>
-					<table width="100%" id="mi_tabla">
+					<table width="100%" id="mi_tabla" class="table">
 							<tbody>
 							<tr>
 								<td>
@@ -894,46 +895,25 @@ else {?>
 								<td>
 								</td>
 							</tr>
-							<?
-							//$datos2	=	array();
-								foreach($atributos as $data)
+							<?php
+								foreach($atributos[0] as $key=>$info)
 								{
-									foreach($data as $key=>$info)
-									{
-										if(!is_numeric($key))
-										{
-											if(!empty($info))
-											{
-												//echo $key."=>".$info."<br>";
-												$datos2[0][$key]="$info";
-											}
-										}
-									}
-								}
-							ksort($datos2[0]);
-								//var_dump($datos2);
-								foreach($datos2 as $data)
-								{
-									foreach($data as $key=>$info)
+									
+									if(!is_numeric($key))
 									{
 										
-										if(!is_numeric($key))
+										if(!empty($info))
 										{
-											
-											if(!empty($info))
-											{
-												echo "<tr>";
-												if($key != 'producto')
-												{	
-													echo "<td><b>".utf8_encode($key)."</b></td>";
-													echo "<td>
-															<input type='text' value='".$info."' name='".$key."' size='50'>
-											 			 </td>";
-												}
-												echo "</tr>";
+											echo "<tr>";
+											if($key != 'producto')
+											{	
+												echo "<td><b>".utf8_encode($key)."</b></td>";
+												echo "<td>
+														<input type='text' value='".$info."' name='".$key."' size='50' class='form-control'>
+										 			 </td>";
 											}
+											echo "</tr>";
 										}
-											
 									}
 								}
 								?>
@@ -941,35 +921,36 @@ else {?>
 						</table>
 					</div>
 					<div style="width:100%;background:#ECF4CC;text-align:center">
-					<?
-								$datos	=	array();
-								foreach($atributos as $data)
+					<?php
+							$datos	=	array();
+								foreach($atributos[0] as $key=>$info)
 								{
-									foreach($data as $key=>$info)
+									if(!is_numeric($key))
 									{
-										if(!is_numeric($key))
+										if(empty($info))
 										{
-											if(empty($info))
-											{
-												array_push($datos,$key);
-											}
+											array_push($datos,$key);
 										}
 									}
-								}
+									}
 						sort($datos);
 						?>
-						<select id="valores" name="valores">
+						<select id="valores" name="valores" class="form-control">
 						<?
 								
-								for($a=1;$a<=count($datos);$a++)
+								foreach($atributos[0] as $key=>$info)
 								{
-									echo "<option value='".$datos[$a]."'>".$datos[$a]."</option>";
+
+									if($key != 'producto')
+									{	
+										echo "<option value='".$key."'>".$key."</option>";
+									}
 								}
 						
 						?>
 						</select>
-						<input type="button" name="" value="A&ntilde;adir Atributo" onClick="InsertarFila(document.getElementById('valores').value);">
-						<input type="submit" name="guardar_atrib" value="Guardar Atributos">
+						<input type="button" name="" class="btn btn-primary" value="A&ntilde;adir Atributo" onClick="InsertarFila(document.getElementById('valores').value);">
+						<input type="submit" name="guardar_atrib" class="btn btn-primary" value="Guardar Atributos">
 					</div>
 				<?}?>	
 			</td>

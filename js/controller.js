@@ -41,11 +41,6 @@ home.controller('principal', function($scope,$http,$q,logica){
 			$scope.divError	= true;
 			$scope.msgError	= "El campo teléfono es un campo numérico.";
 		}
-		else if($scope.asunto == undefined || $scope.asunto == "")
-		{
-			$scope.divError	= true;
-			$scope.msgError	= "Debe seleccionar el asunto, es importante para nosotros saber lo quedesea contactar de nosotros.";
-		}
 		else if($scope.mensaje == undefined || $scope.mensaje == "")
 		{
 			$scope.divError	= true;
@@ -56,7 +51,7 @@ home.controller('principal', function($scope,$http,$q,logica){
 			var ruta 			=  "envio.php";
 			var parametros		=  $("#contact-form").serialize();
 			$scope.enviaAjax(ruta,parametros,function(json){
-				document.location = "http://www.thecupcakesstore.com/gracias#about";
+				document.location = dominio+"gracias#about";
 			});
 		}
 	}
@@ -148,7 +143,7 @@ home.controller('principal', function($scope,$http,$q,logica){
 		});
 	}
 
-	/*$scope.readCar = function()
+	$scope.readCar = function()
 	{
 		$.ajax({
 		    url: dominio+"php/carrito.php",
@@ -165,7 +160,7 @@ home.controller('principal', function($scope,$http,$q,logica){
 		        //swal("Oops...","Parece que ha habido un error interno, intenta de nuevo más tarde","error");
 		    }
 		});
-	}*/
+	}
 });
 
 home.controller('carritoFunction', function($scope,$http,$q,logica)
