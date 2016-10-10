@@ -1,22 +1,4 @@
 <!--
-    <section id="intro" class="intro">
-    
-        <div class="slogan">
-            <center>
-            <a href="index.html"><img src="<?php echo _DOMINIO ?>images/diseno/logoRed.svg" alt="" width="300px" /></a></center>
-            <br><br>
-            <h1 style="color:#fff;text-shadow: 0px 2px 3px #999;font-size: 3.5em">Haz de tu vida un sueño <br>y de tu sueño una realidad</h1>
-        </div>
-        <div class="page-scroll">
-            <a href="#about">
-                <i class="fa fa-angle-down fa-5x animated"></i>
-            </a>
-        </div>
-    </section>-->
-    
-     
-
-    <!-- Section: about -->
     <section id="about" class="home-section" style="background: #fff">
         <div class="container">
             <div class="row">
@@ -26,9 +8,6 @@
                         <div class="wow bounceInDown" data-wow-delay="0.2s">
                             <h2 ><?php echo $quienes[0]['titulo']?></h2>
                         </div>
-                        <!--<p class="wow bounceInUp" data-wow-delay="0.3s">
-                            Hacemos cosas dulces para hacer tu vida más feliz
-                        </p>-->
                         </div>
                     
                 </div>
@@ -37,77 +16,88 @@
 
         <div class="container">
             <div class="row">
-                <!--<div class="col-md-6">
-                
-                    <img src="<?php echo _DOMINIO ?>images/diseno/img1.jpg" class="img-responsive img-rounded" alt="" />
-                </div>  --> 
                 <div class="col-md-2 col-sm-12 col-xs-12"></div>
                 <div class="col-md-8 text-center">
-                    <!--<p><strong>Lorem ipsum dolor sit amet, ei purto tamquam ceteros his</strong></p>-->
                     <p>
                     <?php echo $quienes[0]['contenido']?>
-
-                   <!-- <div id="fb-root"></div>
-                    <script>(function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0];
-                      if (d.getElementById(id)) return;
-                      js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=216374165059237";
-                      fjs.parentNode.insertBefore(js, fjs);
-                    }(document, 'script', 'facebook-jssdk'));</script>
-                    <div class="fb-like" data-href="https://www.facebook.com/thcupcakesstore/" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
-                    </p>-->
-                    <!--<blockquote>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                    </blockquote>-->
-                    <!--<a href="#gallery" class="btn btn-skin btn-lg btn-scroll">Ver Fotos</a>-->
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12"></div>
             </div>      
         </div>
-    </section>
-    <!-- /Section: about -->
-    
-    <!-- Section: separator -->
-    <!--<section id="separator" class="home-section parallax text-center" data-stellar-background-ratio="0.5">
-        
-        <div class="container">
-            <div class="row">
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="align-center txt-shadow">
-                            <div class="icon">
-                                <i class="fa fa-graduation-cap fa-5x"></i>
-                            </div>
-                        <span class="color-white">Bachelor of Design</span>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="align-center txt-shadow">
-                            <div class="icon">
-                                <i class="fa fa-heart fa-5x"></i>
-                            </div>
-                        <span class="color-white">10x failed in love</span>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="align-center txt-shadow">
-                            <div class="icon">
-                                <i class="fa fa-plane fa-5x"></i>
-                            </div>
-                        <span class="color-white">I love traveling</span>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 col-md-3">
-                        <div class="align-center txt-shadow">
-                            <div class="icon">
-                                <i class="fa fa-camera fa-5x"></i>
-                            </div>
-                        <span class="color-white">I'm photographer</span>
-                        </div>
-                    </div>
-            </div>      
-        </div>
     </section>-->
-    <!-- /Section: separator -->
-    
+<?php if(count($destacados) > 0){?>
+<div class="container-fluid" style="padding: 5%;background: #598EC0;color:#fff">
+    <div class="container">
+        <h2 style="color:#fff;text-align: center">Productos destacados</h2>
+        <div class="controls pull-right">
+                        <a class="left fa fa-chevron-left btn btn-primary" href="#carousel-example"
+                        data-slide="prev"><i class="icon-chevron-left"></i></a><a class="right fa fa-chevron-right btn btn-primary" href="#carousel-example"
+                            data-slide="next"><i class="icon-chevron-right"></i></a>
+                </div>
+
+       <div class="row">
+           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+            <div id="carousel-example" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active"> 
+
+                        <div class="row">
+
+                            <?php $cont=0;foreach($destacados as $dest){ $cont++;?>
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin:0 0 5% 0">
+                                   <div class="card" style="padding: 5%;background: #fff;border-radius: 5px;box-shadow: 0px 0px 5px #7A7858;text-align: center">
+                                      <img class="card-img-top" src="<?php echo _DOMINIO?>images/<?php echo  $dest['imagen']?>" alt="Card image cap" width="100%">
+                                      <div class="card-block" style="margin:2% 0 0 0">
+                                        <h4 class="card-title" style="margin:0">
+                                        <?php echo utf8_encode($dest['titulo'])?></h4><br>
+                                        <h3 style="padding: 0;color:#F34235">
+                                        $<?php echo number_format($dest['precio_normal'],0,",",".") ?>
+                                        <?php if($dest['precio_oferta']!= ""or $dest['precio_oferta'] != 0){ ?>
+                                        <span class="small" style="text-decoration: line-through;">$<?php echo number_format($dest['precio_oferta'],0,",",".") ?></span>
+                                        <?php } ?>
+                                        </h3>
+                                        <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+                                        <a href="<?php  echo _DOMINIO ?>productos/<?php  echo $dest['id'] ?>/<?php echo $funciones->armaUrl($dest['titulo'])?>" class="btn btn-skin btn-block">LO QUIERO!</a>
+                                      </div>
+                                    </div>
+                                </div>
+                                <?php if(count($destacados) > 3){?>
+                                    <?php if($cont == 3){ $cont=0; ?>
+
+                                        </div><!-- cierro row-->
+                                        </div>
+                                         <div class="item"> 
+                                         <div class="row">
+                                    <?php }?>
+                                <?php }?>
+
+                             <?php } ?>   
+
+                        </div><!-- Row-->
+
+                    </div><!-- Item active--> 
+                </div><!-- Carrousel Inner-->
+             </div>    
+
+           </div>
+           <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+               <!-- <div class="card">
+                  <div class="card-block">
+                    <h4 class="card-title" style="text-align: center">Carrito de compras</h4>
+                    <div style="float: left;width: 100%" id="carritoCont">
+                        
+                    </div>
+                  </div>
+                </div>-->
+           </div>
+       </div>
+    </div>
+</div>
+<?php } ?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.carousel').carousel();
+    });
+</script>

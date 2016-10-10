@@ -61,20 +61,29 @@ $presentaciones[5][] = "Talla 12";*/
 ?>
 <div class="container-fluid" style="background: #fff">
 	<div class="container">
-	<ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
-	  <?php foreach($resursiva as $r){ ?>
-	  		<?php if($r['id'] != 10){ ?>
-		  		<?php if($r['id'] == $id){ ?>
-		  			<li class="active"><?php echo utf8_encode($r['titulo']) ?></li>
-		  		<?php }else{ ?>
-		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $r['id'] ?>/<?php echo $funciones->armaUrl( $r['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
-		  		<?php } ?>
-	  		<?php } ?>
-	  <?php } ?>
-	</ol>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+            
+        </div>
+        <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+
+                <ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
+                  <?php foreach($resursiva as $r){ ?>
+                        <?php if($r['id'] != 10 ){ ?>
+                            <?php if($r['id'] == $id){ ?>
+                                <li class="active"><?php echo utf8_encode($r['titulo'])?></li>
+                            <?php }else{ ?>
+                                <li><a href="<?php  echo _DOMINIO ?>productos/<?php echo $r['id'] ?>/<?php echo $funciones->armaUrl($r['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
+                            <?php } ?>
+                        <?php } ?>
+                  <?php } ?>
+                </ol>
+            
+        </div>
+    </div>
 	</div>
 </div>
-<div class="container-fluid" style="padding: 5% 0 5% 0;background: #fff" ng-controller="carritoFunction" ng-init="carritoIni()">
+<div class="container-fluid" style="padding: 5% 0 5% 0;background: #fff;margin:2% 0" ng-controller="carritoFunction" ng-init="carritoIni()">
     <div class="container">
         <div class="row">
        		  <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">

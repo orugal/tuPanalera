@@ -88,12 +88,30 @@
 <footer style="color:#444 !important;background: #fff">
     <div class="container">
       <div class="row">
-        <div class="col-md-12 col-lg-12">
-          <p>&copy;Copyright <?php echo date("Y")?>. <?php echo _NOMBRE_EMPRESA?><br> <!--. design by <a href="http://bootstraptaste.co">Bootstrap Themes</a>-->
+        <div class="col-md-2 col-lg-2">
+          <img src="<?php echo _DOMINIO ?>images/diseno/logoPie.png" width="100%" class="visible-lg visible-md">
+          <center><img src="<?php echo _DOMINIO ?>images/diseno/logoPie.png" width="50%" class="visible-sm-block visible-xs "></center>
+        </div>
+
+        <div class="col-md-10 col-lg-10 text-left visible-lg visible-md"  style="color:#000" >
+          <p><?php echo _NOMBRE_EMPRESA?><br> <!--. design by <a href="http://bootstraptaste.co">Bootstrap Themes</a>-->
           <i><?php echo $home[0]['mail']?></i><br>
-          <?php echo $home[0]['direccion']?>
+          <?php echo $home[0]['direccion']?><br>
+          &copy;Copyright <?php echo date("Y")?><br>
+          Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a>
           </p>
         </div>
+
+
+        <div class="col-md-10 col-lg-10 text-center visible-sm-block visible-xs"  style="color:#000" >
+          <p><?php echo _NOMBRE_EMPRESA?><br> <!--. design by <a href="http://bootstraptaste.co">Bootstrap Themes</a>-->
+          <i><?php echo $home[0]['mail']?></i><br>
+          <?php echo $home[0]['direccion']?><br>
+          &copy;Copyright <?php echo date("Y")?><br>
+          Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a>
+          </p>
+        </div>
+
       </div>  
     </div>
   </footer>

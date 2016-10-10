@@ -14,22 +14,31 @@ $pedido 	=	$funciones-> getCar($_SESSION['carrito']['pedido']);
 
 $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 ?>
-<div class="container-fluid" >
+<div class="container-fluid" style="background: #fff">
 	<div class="container">
-	<ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
-	  <?php foreach($resursiva as $r){ ?>
-	  		<?php if($r['id'] != 10 && $r['id'] != 1190){ ?>
-		  		<?php if($r['id'] == $id){ ?>
-		  			<li class="active"><?php echo $r['titulo'] ?></li>
-		  		<?php }else{ ?>
-		  			<li><a href="<?php  echo _DOMINIO ?>productos/<?php  echo  $r['id'] ?>/<?php echo $funciones->armaUrl( $r['titulo'] )?>"><?php echo $r['titulo'] ?></a></li>
-		  		<?php } ?>
-	  		<?php } ?>
-	  <?php } ?>
-	</ol>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
+            
+        </div>
+        <div class="col-lg-10 col-md-10 col-xs-12 col-sm-12">
+
+                <ol class="breadcrumb" style="background: transparent;margin:5% 0 0 0">
+                  <?php foreach($resursiva as $r){ ?>
+                        <?php if($r['id'] != 10 ){ ?>
+                            <?php if($r['id'] == $id){ ?>
+                                <li class="active"><?php echo utf8_encode($r['titulo'])?></li>
+                            <?php }else{ ?>
+                                <li><a href="<?php  echo _DOMINIO ?>productos/<?php echo $r['id'] ?>/<?php echo $funciones->armaUrl($r['titulo'] )?>"><?php echo utf8_encode($r['titulo']) ?></a></li>
+                            <?php } ?>
+                        <?php } ?>
+                  <?php } ?>
+                </ol>
+            
+        </div>
+    </div>
 	</div>
 </div>
-<div class="container-fluid" style="padding: 5% 0 5% 0" ng-controller="carritoFunction" ng-init="carritoIni()">
+<div class="container-fluid" style="padding: 5% 0 5% 0;margin:2% 0" ng-controller="carritoFunction" ng-init="carritoIni()">
     <div class="container">
         <div class="row">
        		  <div class="col-sm-12 col-xs-12 <?php if(count($pedido) > 0){ ?>col-md-6 col-lg-6 <?php }else{ ?>	col-md-12 col-lg-12<?php } ?>">
@@ -109,7 +118,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 						<?php if(!isset($_SESSION['carrito']['persona'])){ ?>
 							<h2 style="padding: 0;margin: 0 0 2% 0">Debes estar registrado</h2>
 							<p>
-								Para poder realizar el pago por medio de la página debes estar registrado ante nuestro sistema.
+								Para poder realizar el pedido por medio de la página debes estar registrado.
 							</p>
 		       		  		<a href="<?php echo _DOMINIO ?>productos" class="btn btn-info"> Seguir comprando</a>
 							<a ng-click="irPagoSinSession()" class="btn btn-skin"> Ir a registrarme</a>

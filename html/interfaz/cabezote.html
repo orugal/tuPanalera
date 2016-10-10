@@ -1,4 +1,4 @@
-<div class="container-fluid bgPrincipal" style="padding: 0">
+<!--<div class="container-fluid bgPrincipal" style="padding: 0">
   <div class="container-fluid transUpper">
     <div class="container">
          <nav class="navbar navbar-custom" role="navigation">
@@ -17,52 +17,19 @@
           </div>
         </nav>
     </div>
-  </div>
+  </div>-->
 
 
 
-  <div class="container-fluid transUpper">
+  <div class="container-fluid  visible-lg visible-md">
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12">
-                <a href="<?php echo _DOMINIO?>"><img src="<?php echo _DOMINIO?>images/diseno/logoWeb.png" width="40%"/></a>
+
+            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12" style="position: relative;margin:0">
+                <a style="position: absolute;top:-3px;" href="<?php echo _DOMINIO?>"><img src="<?php echo _DOMINIO?>images/diseno/logoWeb.png" width="100%"/></a>
             </div>
-            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-12"> 
 
-                 <div class="dropdown" style="margin:15% 5% 0 0;background: #f0f0f0;border:1px solid #d7d7d7;float: right;">
-                  <a class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin:0 10% 0 0; !important;"><i class="fa fa-shopping-bag fa-1x" aria-hidden="true"></i>&nbsp;<b class="caret"></b></a>
-                  <ul class="dropdown-menu message-dropdown text-right" style="min-width: 300px;padding:10%;right:0;border:none" id="carritoCont">
-                    </ul>
-                </div>
-
-                <div class="dropdown" style="margin:15% 5% 0 0;background: #f0f0f0;border:1px solid #d7d7d7;float: right">
-                  <a class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin:0 10% 0 0; !important;"><i class="glyphicon glyphicon-user"></i>&nbsp;<b class="caret"></b></a>
-                  <ul class="dropdown-menu message-dropdown text-left" style="min-width: 300px;padding:10%;right:0;border:none">
-                        <li class="message-preview text-center" style="width: 100%">
-                        <?php if(!isset($_SESSION['carrito']['persona'])){ ?>
-                          Ahora puedes<br>
-                          <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Registrate</a>
-                          ó
-                          <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Iniciar Sesión</a><br>
-                          <?php }else{ ?>
-                          Bienvenido <strong><?php echo $_SESSION['carrito']['persona']['nombres']." ". $_SESSION['carrito']['persona']['apellidos'] ?></strong><br><br>
-                          <a href="<?php echo _DOMINIO ?>pedidos" class="btn btn-clear">Mis pedidos</a>
-                          <a ng-click="cerrarSesion()" class="btn btn-skin btnIrCarro">Cerrar Sesión</a>
-                          <?php } ?><br>
-                        </li>
-                      </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>  
-  </div>
-
-  <div class="container-fluid transUpper" style="padding:2% 0 0 0">
-    <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
-              <center>
+            <div class="col-md-10 col-lg-10 col-xs-12 col-sm-12 " style="padding: 0"> 
               <!-- btn 1-->
                 <a class="btnBig btn btn-primary btn1" href="<?php echo _DOMINIO?>productos/1314/panales_panitos" id="dropdownMenuButton">
                   PAÑALES Y PAÑITOS
@@ -87,13 +54,118 @@
                 <a class="btnBig btn btn-info btn5" href="<?php echo _DOMINIO?>productos/1407/coches_corrales" id="dropdownMenuButton">
                   COCHES Y CORRALES
                 </a>
+
+                 <!--<div class="dropdown" style="margin:15% 5% 0 0;background: #f0f0f0;border:1px solid #d7d7d7;float: right;">
+                  <a class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin:0 10% 0 0; !important;"><i class="fa fa-shopping-bag fa-1x" aria-hidden="true"></i>&nbsp;<b class="caret"></b></a>
+                  <ul class="dropdown-menu message-dropdown text-right" style="min-width: 300px;padding:10%;right:0;border:none" id="carritoCont">
+                    </ul>
+                </div>
+
+                <div class="dropdown" style="margin:15% 5% 0 0;background: #f0f0f0;border:1px solid #d7d7d7;float: right">
+                  <a class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin:0 10% 0 0; !important;"><i class="glyphicon glyphicon-user"></i>&nbsp;<b class="caret"></b></a>
+                  <ul class="dropdown-menu message-dropdown text-left" style="min-width: 300px;padding:10%;right:0;border:none">
+                        <li class="message-preview text-center" style="width: 100%">
+                        <?php if(!isset($_SESSION['carrito']['persona'])){ ?>
+                          Ahora puedes<br>
+                          <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Registrate</a>
+                          ó
+                          <a href="<?php echo _DOMINIO ?>acceso" class="btn btn-skin btnIrCarro">Iniciar Sesión</a><br>
+                          <?php }else{ ?>
+                          Bienvenido <strong><?php echo $_SESSION['carrito']['persona']['nombres']." ". $_SESSION['carrito']['persona']['apellidos'] ?></strong><br><br>
+                          <a href="<?php echo _DOMINIO ?>pedidos" class="btn btn-clear">Mis pedidos</a>
+                          <a ng-click="cerrarSesion()" class="btn btn-skin btnIrCarro">Cerrar Sesión</a>
+                          <?php } ?><br>
+                        </li>
+                      </ul>
+                </div>-->
+
+            </div>
+        </div>
+    </div>  
+  </div>
+
+
+
+<nav class="visible-sm-block visible-xs navbar navbar-default" style="background:#fff !important;border:none;border-radius:none;height: 25% !important">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <center>
+      <a class="navbar-brand" href="<?php echo _DOMINIO?>" style="margin:-15% 0 0 0">
+           <img src="<?php echo _DOMINIO?>images/diseno/logoWeb.png" width="30%"/></a></center>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <a style="color:#fff !important" class="btnBig btn btn-block btn-primary btn1" href="<?php echo _DOMINIO?>productos/1314/panales_panitos" id="dropdownMenuButton">
+                  PAÑALES Y PAÑITOS
+                </a></li>
+            <li><a style="color:#fff !important" class="btnBig btn btn-block btn-primary btn2" href="<?php echo _DOMINIO?>productos/1339/nutricion_intantil" id="dropdownMenuButton">
+                  NUTRICIÓN INFANTIL
+                </a></li>
+            <li><a style="color:#fff !important" class="btnBig btn btn-block btn-primary btn3" href="<?php echo _DOMINIO?>productos/1340/cuidado_infantil" id="dropdownMenuButton">
+                  CUIDADO Y INFANTIL
+                </a></li>
+            <li role="separator" class="divider"></li>
+            <li><a style="color:#fff !important" class="btnBig btn btn-block btn-primary btn4" href="<?php echo _DOMINIO?>productos/1341/ropa_infantil" id="dropdownMenuButton">
+                  ROPA Y ACCESORIOS
+                </a></li>
+            <li role="separator" class="divider"></li>
+            <li> <a style="color:#fff !important" class="btnBig btn btn-block btn-info btn5" href="<?php echo _DOMINIO?>productos/1407/coches_corrales" id="dropdownMenuButton">
+                  COCHES Y CORRALES
+                </a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+  <!--<div class="container-fluid transUpper" style="padding:2% 0 0 0">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+              <center>
+              
+                <a class="btnBig btn btn-primary btn1" href="<?php echo _DOMINIO?>productos/1314/panales_panitos" id="dropdownMenuButton">
+                  PAÑALES Y PAÑITOS
+                </a>
+
+              
+                <a class="btnBig btn btn-primary btn2" href="<?php echo _DOMINIO?>productos/1339/nutricion_intantil" id="dropdownMenuButton">
+                  NUTRICIÓN INFANTIL
+                </a>
+
+              
+                <a class="btnBig btn btn-primary btn3" href="<?php echo _DOMINIO?>productos/1340/cuidado_infantil" id="dropdownMenuButton">
+                  CUIDADO Y INFANTIL
+                </a>
+
+              
+                <a class="btnBig btn btn-primary btn4" href="<?php echo _DOMINIO?>productos/1341/ropa_infantil" id="dropdownMenuButton">
+                  ROPA Y ACCESORIOS
+                </a>
+
+              
+                <a class="btnBig btn btn-info btn5" href="<?php echo _DOMINIO?>productos/1407/coches_corrales" id="dropdownMenuButton">
+                  COCHES Y CORRALES
+                </a>
                 </center>
           </div>
 
         </div>
 
     </div>
-  </div>
+  </div>-->
 
 </div>
 

@@ -277,7 +277,7 @@ hr {
 
 .bg-gray {
  /* background: #f8f8f8;*/
-	background: #1e88e5;
+	background: #5E94C5;
 }
 
 
@@ -587,7 +587,7 @@ a.btn:hover {
 .btn-skin:active,
 .btn-skin.active {
   color: #fff;
-  background-color: #666;
+  background-color: #5E94C5;
   border-color: #666;
 }
 
@@ -662,6 +662,6 @@ input[type=number] {
 }
 
 .btnIrCarro{color:#fff !important}
-.btnIrCarro:hover{color:#1e88e5 !important}
+.btnIrCarro:hover{color:#5E94C5 !important}
 
 .navbar-toggle .icon-bar{background: #444 !important}

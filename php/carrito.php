@@ -46,8 +46,11 @@ if(isset($accion))
 				foreach($carritoData as $car)
 				{
 					$cantVenta     =   ($car['canje'] == 0)?1:1;
-					$pintada .= '<li class="message-preview text-left" ng-repeat="car in dataCarrito">
-				                    <div class="media">
+					$pintada .= '<!--<li class="message-preview text-left" ng-repeat="car in dataCarrito">-->
+				                    <div class="media" id="item'.$car['id_compra'].'">
+				                        <span class="pull-right">
+				                        	<a onclick="delCarrto('.$car['id_compra'].')" class="btn btn-skin glyphicon glyphicon-trash"></a>
+				                        </span>
 				                        <span class="pull-left">
 				                            <img class="media-object" src="'._DOMINIO.'images/'.$car['imagen'].'" alt="" width="50px">
 				                        </span>
@@ -59,11 +62,11 @@ if(isset($accion))
 				                            <p style="padding-top: 0;margin:0" class=" text-left"></p>
 				                        </div>
 				                    </div>
-				                </li>';
+				                <!--</li>-->';
 				}
 				
 
-	            $pintada .= '<a href="'._DOMINIO.'carrito" class="btn btn-skin btn-block btnIrCarro">Ir al carrito</a>';
+	            $pintada .= '<a href="'._DOMINIO.'carrito" class="btn btn-skin btn-block btnIrCarro">Hacer pedido</a>';
 
 				$salida = array("mensaje"=>"Carrito con productos.",
 						"datos"=>$pintada,
@@ -72,9 +75,9 @@ if(isset($accion))
 			else
 			{
 				$pintada  	 = "";
-				$pintada .= '<li class="message-preview text-center" style="width: 100%">
-				                   <i class="glyphicon glyphicon-shopping-cart  text-left"></i> No hay productos en el carrito</p>
-				                </li>';
+				$pintada .= '
+				                   <center><i class="icon-shopping-cart icon-4x"></i><br>No hay productos en el carrito</p></center>
+				             ';
 
 				$salida = array("mensaje"=>"No hay productos agregados al carrito.",
 						"datos"=>$pintada,
@@ -84,13 +87,13 @@ if(isset($accion))
 		else
 		{
 			$pintada  	 = "";
-				$pintada .= '<li class="message-preview text-left" ng-repeat="car in dataCarrito">
+				$pintada .= '
 				                    <div class="media">
 				                        <div class="media-body">
-				                           <p style="padding-top: 0;margin:0" class=" text-left small text-muted"><i class="glyphicon glyphicon-shopping-cart  text-left"></i> No hay productos en el carrito</p>
+				                           <center><i class="icon-shopping-cart icon-4x"></i><br>No hay productos en el carrito</p></center>
 				                        </div>
 				                    </div>
-				                </li>';
+				                <';
 
 				$salida = array("mensaje"=>"No hay productos agregados al carrito.",
 						"datos"=>$pintada,
