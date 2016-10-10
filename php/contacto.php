@@ -63,7 +63,7 @@ if(isset($_POST['enviar']))
 		$mensaje_armado	.= '<b>Correo Electronico:</b> '.$mail.'<br>';
 		$mensaje_armado	.= '<b>Telefono: </b>'.$telefono.'<br>';
 		$mensaje_armado	.= '<b>Comentario:</b> '.$comentario.'<br>';
-		$envio			 =	$funciones->SendMAIL(_MAIL_ADMIN,$asunto,$mensaje_armado,'',$mail,_NOMBRE_EMPRESA);
+		$envio			 =	$funciones->SendMAIL(_MAIL_ADMIN,$asunto,$mensaje_armado,'','info@tupanalera.com',_NOMBRE_EMPRESA);
 		//inserto datos en la base de datos
 		//$final				=	$funciones->insertarDatos('mensajes',1);
 		//die($final);

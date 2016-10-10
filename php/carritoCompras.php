@@ -59,7 +59,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 		       		  			$cantidades += $lista['cantidad'];
 		       		  			?>
 			       		  		<tr id="item<?php echo $lista['id_compra'] ?>">
-			       		  			<td class="text-left"><?php echo $lista['titulo'] ?></td>
+			       		  			<td class="text-left"><?php echo utf8_encode($lista['titulo']) ?></td>
 			       		  			<td class="text-center"><?php echo $lista['cantidad'] ?></td>
 			       		  			<td class="text-center">$<?php echo number_format($lista['precio_normal'],0,",",".") ?></td>
 			       		  			<td class="text-center">$<?php echo number_format($totalVentaItem,0,",",".") ?></td>
@@ -132,7 +132,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 							    <input type="text" class="form-control" value="<?php echo $_SESSION['carrito']['persona']['celular'] ?>" id="celular" name="celular" ng-model="celular" placeholder="Escribe un número de celular">
 							  </div>
 							<a href="<?php echo _DOMINIO ?>productos" class="btn btn-info"> Seguir comprando</a>
-							  <button type="submit" class="btn btn-skin">Continuar</button>
+							  <button type="submit" class="btn btn-skin">Hacer pedido</button>
 							</form>
 						<?php } ?>
 	       		  </div>

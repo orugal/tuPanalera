@@ -12,6 +12,7 @@ $info_id	=	$core->info_id;
 $hijos		=	$core->info_id_hijos;
 $pedido 	=	$funciones->getCar($_SESSION['carrito']['pedido']);
 $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
+//var_dump($_SESSION['carrito']);
 ?>
 <div class="container-fluid" >
 	<div class="container">
@@ -37,7 +38,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
        		  	
        		  	<?php if(count($pedido) > 0){ ?>
        		  	<p>
-       		  		A continuación te mostramos el pedido que acabas de seleccionar de nuestra tienda.
+       		  		A continuación te mostramos el pedido que acabas de seleccionar de nuestra tienda.<br>
        		  	</p>
        		  	<div class="table-responsive">
 	       		  	<table class="table">
@@ -58,7 +59,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 		       		  			$cantidades += $lista['cantidad'];
 		       		  			?>
 			       		  		<tr id="item<?php echo $lista['id_compra'] ?>">
-			       		  			<td class="text-left"><?php echo $lista['titulo'] ?></td>
+			       		  			<td class="text-left"><?php echo utf8_encode($lista['titulo']) ?></td>
 			       		  			<td class="text-center"><?php echo $lista['cantidad'] ?></td>
 			       		  			<td class="text-center">$<?php echo number_format($lista['precio_normal'],0,",",".") ?></td>
 			       		  			<td class="text-center">$<?php echo number_format($totalVentaItem,0,",",".") ?></td>
@@ -94,6 +95,13 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 	       		  		</tfoot>
 	       		  	</table>
 	       		  	</div>
+
+	       		  	<h2 style="padding: 0;margin: 0 0 2% 0;text-align: left">Condiciones de entrega</h2>
+	       		  	<p style="font-size: 0.8em;text-align: left">
+	       		  		*  El pago se hace contra entrega<br>
+	       		  		*  Si el pedido se realiza antes de las 10 AM ser&aacute; entregado en las horas de la tarde del mismo d&iacute;a.<br>
+	       		  		*  Si el pedido se realiza después de medio d&iacute;a este ser&aacute; entregado al d&iacute;a siguiente en las horas de la mañana.
+	       		  	</p>
 	       		  	<center>
 	       		  	<?php 
 	       		  	//“ApiKey~merchantId~referenceCode~amount~currency”.
@@ -119,10 +127,15 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 					  <input name="buyerEmail"    type="hidden"  value="<?php echo $_SESSION['carrito']['persona']['email'] ?>" >
 					  <input name="responseUrl"    type="hidden"  value="http://www.thecupcakesstore.com/confirma.php" >
 					  <input name="confirmationUrl"    type="hidden"  value="http://www.thecupcakesstore.com/confirma2.php" >
-					  <input name="Submit"        type="submit"  value="Reaizar pedido"  class="btn btn-skin">
+
+					  <input name="Submit"        type="button"  value="Realizar pedido"  class="btn btn-skin" ng-click="realizarPedido()">
+					  <!--<input name="Submit"        type="submit"  value="Realizar pedido"  class="btn btn-skin">-->
 					</form><br>
-					<a href="http://www.payulatam.com/logos/pol.php?l=133&c=56dc9a177084d" target="_blank">
-					<img src="http://www.payulatam.com/logos/logo.php?l=133&c=56dc9a177084d" alt="PayU Latam" border="0" width="100%" /></a>
+					<!--<a href="http://www.payulatam.com/logos/pol.php?l=133&c=56dc9a177084d" target="_blank">
+					<img src="http://www.payulatam.com/logos/logo.php?l=133&c=56dc9a177084d" alt="PayU Latam" border="0" width="100%" /></a>-->
+
+
+	       		  	
 					</center>
 	       		  	<?php }else{ ?>
 	       		  		<p>Parece que aún no has realizado un pedido. Te invitamos a que ingreses a nuestro catálogo de productos.</p><br>

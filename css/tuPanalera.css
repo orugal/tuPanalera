@@ -15,10 +15,11 @@ body{font-family: 'Open Sans', sans-serif;font-size: 16px}
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;}
-.btn1{background: #00bbd3;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
-.btn2{background: #4bae4f;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
-.btn3{background: #fec006;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
-.btn4{background: #f34235;color:#fff;font-weight: bold;border-radius: 0;padding: 5%;border:none;}
+.btn1{background: #00bbd3;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn2{background: #4bae4f;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn3{background: #fec006;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn4{background: #f34235;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn5{background: #04e0ff;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
 
 .btn1:hover {
   background: rgba(0,0,0,0);
@@ -39,6 +40,11 @@ background-size: cover;}
   background: rgba(0,0,0,0);
   color: #f34235 !important;
   box-shadow: inset 0 0 0 3px #f34235;
+}
+.btn5:hover {
+  background: rgba(0,0,0,0);
+  color: #04e0ff !important;
+  box-shadow: inset 0 0 0 3px #04e0ff;
 }
 
 

@@ -82,15 +82,15 @@ $rellenos[6]	=	"Salsa de piña";
 						if (strtoupper($firma) == strtoupper($firmacreada)) {
 						?>
 							<h2>Pedido #<?php echo $ped['pedido']; ?></h2>
-							<h3>Referencia: <?php echo $dataPed[0]['refVenta']; ?>. Transacción: <?php echo $dataPed[0]['resTrans']; ?></h3>
+							<!--<h3>Referencia: <?php echo $dataPed[0]['refVenta']; ?>.</h3>-->
 							<table class="table">
-							<tr>
+							<!--<tr>
 								<td>Estado de la transaccion</td>
 								<td class="<?php echo $color ?>">
 									<strong><?php echo $estadoTx; ?>
 									<i class="<?php echo $icon ?>"></i></strong>
 								</td>
-							</tr>
+							</tr>-->
 							<tr>
 								<td>Fecha</td>
 								<td><?php echo $dataPed[0]['fecha']; ?></td>
@@ -115,45 +115,6 @@ $rellenos[6]	=	"Salsa de piña";
 								<td>Email</td>
 								<td><?php echo $ped['email']; ?></td>
 							</tr>
-							<tr>
-								<td>ID de la transaccion</td>
-								<td style="word-wrap:break-word"><?php echo $dataPed[0]['idTrans']; ?></td>
-							</tr>
-							<tr>
-								<td>Referencia de la venta</td>
-								<td><?php echo $dataPed[0]['refVenta']; ?></td> 
-							</tr>
-							<tr>
-								<td>Referencia de la transaccion</td>
-								<td><?php echo $dataPed[0]['resTrans']; ?></td>
-							</tr>
-							<tr>
-							<?php
-							if($pseBank != null) {
-							?>
-								<tr>
-								<td>cus </td>
-								<td><?php echo $cus; ?> </td>
-								</tr>
-								<tr>
-								<td>Banco </td>
-								<td><?php echo $pseBank; ?> </td>
-								</tr>
-							<?php
-							}
-							?>
-							<tr>
-								<td>Valor total</td>
-								<td>$<?php echo number_format($dataPed[0]['valor']); ?></td>
-							</tr>
-							<tr>
-								<td>Moneda</td>
-								<td><?php echo $dataPed[0]['moneda']; ?></td>
-							</tr>
-							<tr>
-								<td>Descripción</td>
-								<td><?php echo ($dataPed[0]['desc']); ?></td>
-							</tr>
 							<tr >
 								<td>Items comprados</td>
 								<td>
@@ -161,8 +122,8 @@ $rellenos[6]	=	"Salsa de piña";
 											<tr>
 												<th>CANT</th>
 												<th>ITEM</th>
-												<th>RELLENO</th>
 												<th>COSTO UNI</th>
+												<th>COSTO TOT</th>
 											</tr>
 										<?php foreach($items as $ite){ ?>
 											<tr>
@@ -170,17 +131,13 @@ $rellenos[6]	=	"Salsa de piña";
 													<?php echo $ite['cantidad'] ?> 
 												</td>
 												<td>	
-													<?php echo $ite['titulo'] ?>
+													<?php echo utf8_encode($ite['titulo']) ?>
 												</td>
-												<td>
-													<?php if($ite['relleno_id'] != 0){ ?>
-														<?php echo $rellenos[$ite['relleno_id']] ?>
-													<?php }else{ ?>
-													--------------
-													<?php } ?>
-												</td>
-												<td>
+												<td align="center">
 													$<?php echo number_format($ite['precio_normal'],0,",",".") ?>
+												</td>
+												<td align="center">
+													$<?php echo number_format(($ite['precio_normal'] * $ite['cantidad']),0,",",".") ?>
 												</td>
 											</tr>
 										<?php } ?>

@@ -481,4 +481,37 @@ home.controller('carritoFunction', function($scope,$http,$q,logica)
 			
 		}
 	}
+	$scope.realizarPedido = function()
+	{
+		swal(
+				{   
+					title: "Confirmación",   
+					text: "Está seguro que desea realizar el pedido con los productos mostrados?",   
+					type: "info",   
+					showCancelButton: true,   
+					closeOnConfirm: false,   
+					showLoaderOnConfirm: true, 
+				},
+				function()
+				{   
+					$.ajax({
+					    url: dominio+"php/carrito.php",
+					    data: "accion=7",
+					    type: "POST",
+					    dataType: "json",
+					    success:function(json)
+					    {
+					    	swal({title:"Carrito de compras",
+					    		 text:json.mensaje,
+					    		 type:"success"},function(){
+					    		 	document.location = dominio+"pedidos";
+					    		 });
+					    },
+					    error:function(e) 
+					    {
+					        swal("Oops...","Parece que ha habido un error interno, intenta de nuevo más tarde","error");
+					    }
+					});
+				});
+	}
 });

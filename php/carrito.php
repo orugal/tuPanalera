@@ -5,15 +5,16 @@
  * @date 4 de marzo de 2016
  * @version 1.0
 */
-ini_set("display_errors",0);
+ini_set("display_errors",1);
 session_start();
 //incluyo los archivos que me permitiran nconectarme a la base de datos
 require_once('../config/configuracion.php');
 require_once('../config/conexion_2.php');
 require_once('../core/funciones.class.php');
+require_once('../core/phpmailer/class.phpmailer.php');
 $funciones = new funciones();
 global $db;
-extract($_POST);
+extract($_REQUEST);
 $salida = array();
 if(isset($accion))
 {
@@ -51,7 +52,7 @@ if(isset($accion))
 				                            <img class="media-object" src="'._DOMINIO.'images/'.$car['imagen'].'" alt="" width="50px">
 				                        </span>
 				                        <div class="media-body">
-				                            <h4 class="media-heading text-left"><strong>'.$car['titulo'].'</strong></h4>
+				                            <h4 class="media-heading text-left"><strong>'.utf8_encode($car['titulo']).'</strong></h4>
 				                            <h5 class="text-left" style="margin-bottom:0">Cantidad: '.$car['cantidad'].'</h5>
 				                            <h5 class="text-left">Valor total: <i class="glyphicon glyphicon-usd  text-left"></i>'.number_format(($car['precio_normal'] * ($car['cantidad'] / $cantVenta )),0,",",".").'</h5>
 				                           <!-- <p style="padding-top: 0;margin:0" class=" text-left small text-muted"><i class="glyphicon glyphicon-usd  text-left"></i> '.number_format($car['precio_normal'],0,",",".").'</p>-->
@@ -209,6 +210,41 @@ if(isset($accion))
 			$salida = array("mensaje"=>"Los datos no pudieron ser actualizados.",
 					"datos"=>array(),
 					"continuar"=>0);
+		}
+	}
+	elseif($accion == 7)//pedido via ajax
+	{
+		$refVenta  =  $_SESSION['carrito']['pedido'];
+		//die(sprintf("UPDATE pedidos set estTrans = 1,refVenta=%s WHERE id_pedido=%s",$_SESSION['carrito']['pedido'],$refVenta));
+		$query = $db->Execute(sprintf("UPDATE pedidos set estTrans = 1,refVenta=%s WHERE id_pedido=%s",$_SESSION['carrito']['pedido'],$refVenta));
+		if($query)
+		{
+
+			//debo enviar un mensaje al administrador de la página web para que sepa de los pedidos
+			$infoPedido 	=	$funciones->getCar($_SESSION['carrito']['pedido']);
+			$asunto  = "Se ha realizado un pedido en "._NOMBRE_EMPRESA_MAIL;
+			$mensaje  = "Se ha realizado un pedido desde la tienda virtual de "._NOMBRE_EMPRESA_MAIL.".<br><br>";
+			$mensaje .= "<strong>Datos de la persona:</strong><br><br>";
+			$mensaje .= "Nombres y apellidos: ".$_SESSION['carrito']['persona']['nombres']." ".$_SESSION['carrito']['persona']['apellidos']."<br>";
+			$mensaje .= "Direcci&oacute;n entrega: ".$_SESSION['carrito']['persona']['direccion']."<br>";
+			$mensaje .= "Tel&eacute;fono: ".$_SESSION['carrito']['persona']['telefono']."<br><br>";
+			$mensaje .= "<strong>Datos del pedido:</strong><br><br>";
+			foreach($infoPedido as $ped)
+			{
+				$mensaje .= ($ped['titulo'])." - Cantidad: ".$ped['cantidad']."<br>";
+			}
+			$envioMensaje = $funciones->SendMAIL(_MAIL_ADMIN,$asunto,$mensaje,'','info@tupanalera.com',_NOMBRE_EMPRESA_MAIL);
+			unset($_SESSION['carrito']['pedido']);
+			$salida = array("mensaje"=>"El pedido ha sido realizado exitosamente, muy pronto nos estaremos comunicando con tigo.",
+						"datos"=>array(),
+						"continuar"=>1);
+
+		}
+		else
+		{
+			$salida = array("mensaje"=>"Actualización del pedido.",
+						"datos"=>array(),
+						"continuar"=>0);
 		}
 	}
 	else

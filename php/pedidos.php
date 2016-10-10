@@ -28,9 +28,19 @@ if(!isset($_SESSION['carrito']['persona']))
 else
 {
 
-$pedidosUsuario = $db->GetAll(sprintf("SELECT DISTINCT(id_pedido) as pedido FROM carrito WHERE usuario_id=%s",$_SESSION['carrito']['persona']['idusuario']));
+$pedidosUsuario = $db->GetAll(sprintf("SELECT DISTINCT(c.id_pedido) as pedido 
+										FROM carrito c
+										INNER JOIN pedidos p ON p.id_pedido=c.id_pedido
+										WHERE c.usuario_id=%s AND p.estTrans=1",$_SESSION['carrito']['persona']['idusuario']));
 
 
+
+/*$pedidosUsuario = $db->GetAll(sprintf("SELECT * FROM pedidos p
+										inner join carrito c on c.id_pedido=p.id_pedido
+										WHERE c.usuario_id=%s AND p.estTrans=1",$_SESSION['carrito']['persona']['idusuario']));*/
+
+
+//var_dump($_SESSION['carrito']);
 
 
 
@@ -58,6 +68,8 @@ $pedidosUsuario = $db->GetAll(sprintf("SELECT DISTINCT(id_pedido) as pedido FROM
         <?php if(count($pedidosUsuario) > 0){ ?>
         	<?php foreach($pedidosUsuario as $ped)
         	{ 
+        		$pedido 	=	$funciones->getCar($ped['pedido']);
+
         		$dataPed = infoPedido($ped['pedido']);
         		if ($dataPed[0]['estTrans'] == 4 ) {
 					$estadoTx = "Transacción aprobada";
@@ -75,76 +87,50 @@ $pedidosUsuario = $db->GetAll(sprintf("SELECT DISTINCT(id_pedido) as pedido FROM
 					$estadoTx = "Transacción pendiente";
 					}
 
+					else if ($dataPed[0]['estTrans'] == 1) {
+					$estadoTx = "Recibido";
+					}
+
 					else {
 					$estadoTx="Sin definir";
 					}
 
         		?>
-       		  <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6">
-       		  	<?php
-						if (strtoupper($firma) == strtoupper($firmacreada)) {
-						?>
-							<h2>Pedido #<?php echo $dataPed[0]['refVenta']; ?></h2>
-							<table class="table">
-							<tr>
-							<td>Estado de la transaccion</td>
-							<td><?php echo $estadoTx; ?></td>
-							</tr>
-							<tr>
-							<tr>
-							<td>ID de la transaccion</td>
-							<td><?php echo $dataPed[0]['idTrans']; ?></td>
-							</tr>
-							<tr>
-							<td>Referencia de la venta</td>
-							<td><?php echo $dataPed[0]['refVenta']; ?></td> 
-							</tr>
-							<tr>
-							<td>Referencia de la transaccion</td>
-							<td><?php echo $dataPed[0]['resTrans']; ?></td>
-							</tr>
-							<tr>
-							<?php
-							if($pseBank != null) {
-							?>
-								<tr>
-								<td>cus </td>
-								<td><?php echo $cus; ?> </td>
-								</tr>
-								<tr>
-								<td>Banco </td>
-								<td><?php echo $pseBank; ?> </td>
-								</tr>
-							<?php
-							}
-							?>
-							<tr>
-							<td>Valor total</td>
-							<td>$<?php echo number_format($dataPed[0]['valor']); ?></td>
-							</tr>
-							<tr>
-							<td>Moneda</td>
-							<td><?php echo $dataPed[0]['moneda']; ?></td>
-							</tr>
-							<tr>
-							<td>Descripción</td>
-							<td><?php echo ($dataPed[0]['desc']); ?></td>
-							</tr>
-							<tr>
-							<td>Entidad:</td>
-							<td><?php echo ($dataPed[0]['entidad']); ?></td>
-							</tr>
-							</table>
-						<?php
-						}
-						else
-						{
-						?>
-							<h1>Error validando firma digital.</h1>
-						<?php
-						}
-						?>
-
+       		  <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+				<h2>Pedido #<?php echo $dataPed[0]['refVenta']; ?></h2>
+				<table class="table">
+				<tr>
+					<td>Estado</td>
+					<td colspan="4"><?php echo $estadoTx; ?></td>
+				</tr>
+				<tr>
+					<td>Fecha del pedido</td>
+					<td colspan="4"><?php echo $pedido[0]['fecha']; ?></td>
+				</tr>
+				<tr>
+					<td colspan="5"><h3 style="margin:0 0 -5px 0">Productos solicitados</h3></td>
+				</tr>
+				<tr>
+					<th>FOTO</th>
+					<th>PRODUCTO</th>
+					<th align="center">CANT</th>
+					<th align="center">V. UNI</th>
+					<th align="center">V. TOT</th>
+				</tr>
+				<?php $suma=0;foreach($pedido as $productos){ ?>
+					<tr>
+						<td align="center"><img src="<?php echo _DOMINIO."/images/".$productos['imagen']?>" width="100px"/></td>
+						<td><?php echo utf8_encode($productos['titulo'])?></td>
+						<td align="center"><?php echo $productos['cantidad']?></td>
+						<td align="right">$<?php echo number_format(($productos['precio_normal']),0,",",".")?></td>
+						<td align="right">$<?php echo number_format(($productos['precio_normal'] * $productos['cantidad']),0,",",".")?></td>
+					</tr>
+				<?php $suma += ($productos['precio_normal'] * $productos['cantidad']); } ?>
+					<tr>
+						<td colspan="4" align="right"><strong>TOTAL</strong></td>
+						<td  align="right"><strong>$<?php echo number_format($suma,0,",",".") ?></strong></td>
+					</tr>
+				</table>
        		  </div>
        		  <?php } ?>
        		  <?php }else{ ?>
