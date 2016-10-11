@@ -85,30 +85,39 @@
   </section>
 
   <?php } ?>
-<footer style="color:#444 !important;background: #fff">
+<footer style="color:#444 !important;background: #f5f5f5">
     <div class="container">
-      <div class="row">
-        <div class="col-md-2 col-lg-2">
+      <div class="row"
+>        <div class="col-md-2 col-lg-2">
           <img src="<?php echo _DOMINIO ?>images/diseno/logoPie.png" width="100%" class="visible-lg visible-md">
           <center><img src="<?php echo _DOMINIO ?>images/diseno/logoPie.png" width="50%" class="visible-sm-block visible-xs "></center>
         </div>
 
-        <div class="col-md-10 col-lg-10 text-left visible-lg visible-md"  style="color:#000" >
-          <p><?php echo _NOMBRE_EMPRESA?><br> <!--. design by <a href="http://bootstraptaste.co">Bootstrap Themes</a>-->
-          <i><?php echo $home[0]['mail']?></i><br>
+        <div class="col-md-4 col-lg-4 text-left visible-lg visible-md"  style="color:#000" >
+          <p><strong><?php echo _NOMBRE_EMPRESA?></strong><br> <!--. design by <a href="http://bootstraptaste.co">Bootstrap Themes</a>-->
           <?php echo $home[0]['direccion']?><br>
-          &copy;Copyright <?php echo date("Y")?><br>
-          Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a>
+          <a style="color:#000"  href="tel:<?php echo $home[0]['telefono']?>" onclick="_gaq.push(['_trackEvent', 'Mobile', 'Llamada'])"><?php echo $home[0]['telefono']?></a><br>
+          <i><?php echo $home[0]['mail']?></i><br>
+          <span class="small">&copy;Copyright <?php echo date("Y")?> - 
+          Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a></span><br>
+
+          <img src="<?php echo _DOMINIO?>images/diseno/facebook.png" width="10%" style="margin:2% 0% 0 0"/>
+          <img src="<?php echo _DOMINIO?>images/diseno/instagram.png" width="10%" style="margin:2% 0% 0 0"/>
           </p>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5715698497124!2d-74.05608948477966!3d4.670205396607674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9af4b6a67c6b%3A0x353d24addceeeee8!2sCentro+De+Visado+Uk!5e0!3m2!1ses!2sco!4v1476226646739" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
 
 
         <div class="col-md-10 col-lg-10 text-center visible-sm-block visible-xs"  style="color:#000" >
-          <p><?php echo _NOMBRE_EMPRESA?><br> <!--. design by <a href="http://bootstraptaste.co">Bootstrap Themes</a>-->
-          <i><?php echo $home[0]['mail']?></i><br>
+          <p><strong><?php echo _NOMBRE_EMPRESA?></strong><br> <!--. design by <a href="http://bootstraptaste.co">Bootstrap Themes</a>-->
           <?php echo $home[0]['direccion']?><br>
-          &copy;Copyright <?php echo date("Y")?><br>
-          Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a>
+          <a style="color:#000"  href="tel:<?php echo $home[0]['telefono']?>" onclick="_gaq.push(['_trackEvent', 'Mobile', 'Llamada'])"><?php echo $home[0]['telefono']?></a><br>
+          <i><?php echo $home[0]['mail']?></i><br>
+          <span class="small">&copy;Copyright <?php echo date("Y")?><br>
+          Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a></span>
           </p>
         </div>
 

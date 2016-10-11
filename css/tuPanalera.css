@@ -15,11 +15,11 @@ body{font-family: 'Open Sans', sans-serif;font-size: 16px}
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;}
-.btn1{background: #5E94C5;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;float:left;}
-.btn2{background: #4bae4f;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;float:left;}
-.btn3{background: #EF8F0A;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;float:left;}
-.btn4{background: #DA007F;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;float:left;}
-.btn5{background: #22BDFF;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;float:left;}
+.btn1{background: #5E94C5;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn2{background: #4bae4f;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn3{background: #EF8F0A;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn4{background: #DA007F;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
+.btn5{background: #22BDFF;color:#fff;font-weight: bold;border-radius: 0;padding: 2%;border:none;}
 
 .btn1:hover {
   background: #fff;
