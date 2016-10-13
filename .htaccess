@@ -11,6 +11,7 @@ RewriteRule ^finalizar-pago$ index.php?id=1333
 RewriteRule ^confirmacion-pago$ index.php?id=1334
 RewriteRule ^pedidos$ index.php?id=1335
 RewriteRule ^quienes-somos$ index.php?id=13
+RewriteRule ^promociones$ index.php?id=1414
 
 
 RewriteRule ^logout$ index.php?logout

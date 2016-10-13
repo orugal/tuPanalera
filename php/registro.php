@@ -28,7 +28,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 	</ol>
 	</div>
 </div>
-<div class="container-fluid" style="padding: 5% 0 5% 0" ng-controller="carritoFunction">
+<div class="container-fluid" style="padding: 5% 0 5% 0;background: #fff;margin:2% 0"  ng-controller="carritoFunction">
     <div class="container">
         <div class="row">
 

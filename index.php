@@ -81,6 +81,9 @@ $frase				=	$funciones->infoId(1218);
 //experiencia
 $home                       =   $funciones->infoId(1);
 
+$banners                       =   $funciones->obtenerListado(1408);
+$amigas                        =   $funciones->obtenerListado(1411);
+
 
 //Equpo
 //$listNoticias 				=	$funciones->obtenerListado(1235);

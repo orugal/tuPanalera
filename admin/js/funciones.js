@@ -150,7 +150,7 @@ function tiposid(id)
 		document.getElementById('titulo').style.display = '';
 		document.getElementById('keywords').style.display = '';
 		document.getElementById('telefono').style.display = '';
-		document.getElementById('telefono2').style.display = '';
+		//document.getElementById('telefono2').style.display = '';
 		document.getElementById('mail').style.display = '';
 		document.getElementById('notas').style.display = '';
 		document.getElementById('direccion').style.display = '';
@@ -191,6 +191,8 @@ function tiposid(id)
 		document.getElementById('resumen').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('imagen1_preview').style.display = '';
+		document.getElementById('imagen2').style.display = '';
+		document.getElementById('mostrar_imagen2').style.display = '';
 		document.getElementById('precio_normal').style.display =	'';
 		document.getElementById('precio_oferta').style.display =	'';
 		document.getElementById('promocion').style.display = '';
@@ -307,9 +309,10 @@ function tiposid(id)
 		document.getElementById('imagen1_preview').style.display = '';
 		document.getElementById('imagen').style.display = '';
 		document.getElementById('seo').style.display = 'none';
-		document.getElementById('pie_imagen').style.display = '';
+		document.getElementById('pie_imagen').style.display = 'none';
 		document.getElementById('keywords').style.display = 'none';
 		document.getElementById('notas').style.display = 'none';
+		document.getElementById('link').style.display = '';
 		
 	}
 	//si es tipo atributo

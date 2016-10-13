@@ -1,6 +1,14 @@
 body{font-family: 'Open Sans', sans-serif;font-size: 16px}
 
+.logoWeb:hover{ transform: scale(1.01) !important;}
+
 .bgPrincipal{background:url(../images/diseno/fondo.png),rgba(255,255,255,.6)}
+.bgNinos{background:url(../images/diseno/ninos.jpg) no-repeat fixed;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
 .flotaLeft{text-align: left !important;}
 .panelCentral{margin:5% 0 0 0;background: #fff;padding: 2%;border-radius: 3px}
 .navbar-custom ul.nav li a{text-transform: capitalize;font-weight: normal}

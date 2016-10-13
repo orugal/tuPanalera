@@ -14,7 +14,7 @@ $pedido 	=	$funciones-> getCar($_SESSION['carrito']['pedido']);
 
 $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 ?>
-<div class="container-fluid" style="background: #fff">
+<div class="container-fluid">
 	<div class="container">
     <div class="row">
         <div class="col-lg-2 col-md-2 col-xs-12 col-sm-12">
@@ -38,7 +38,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
     </div>
 	</div>
 </div>
-<div class="container-fluid" style="padding: 5% 0 5% 0;margin:2% 0" ng-controller="carritoFunction" ng-init="carritoIni()">
+<div class="container-fluid" style="padding: 5% 0 5% 0;background: #fff;margin:2% 0"  ng-controller="carritoFunction" ng-init="carritoIni()">
     <div class="container">
         <div class="row">
        		  <div class="col-sm-12 col-xs-12 <?php if(count($pedido) > 0){ ?>col-md-6 col-lg-6 <?php }else{ ?>	col-md-12 col-lg-12<?php } ?>">

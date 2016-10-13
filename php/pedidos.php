@@ -60,7 +60,7 @@ $pedidosUsuario = $db->GetAll(sprintf("SELECT DISTINCT(c.id_pedido) as pedido
 	</ol>
 	</div>
 </div>
-<div class="container-fluid" style="padding: 5% 0 5% 0" ng-controller="carritoFunction" ng-init="carritoIni()">
+<div class="container-fluid"  style="padding: 5% 0 5% 0;background: #fff;margin:2% 0"  ng-controller="carritoFunction" ng-init="carritoIni()">
     <div class="container">
         <div class="row">
 

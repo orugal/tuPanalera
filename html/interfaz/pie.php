@@ -6,18 +6,11 @@
   ?>
   <?php if($id == 1){ ?>
   <!-- Section: contact -->
-    <section id="contact" class="home-section text-center bgBlue" style="color:#fff">
+    <section id="contact" class="home-section text-center bgNinos" style="color:#fff;padding:5%">
     <div class="heading-contact">
       <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-offset-2">
-          
-          <div class="section-heading">
-          <div class="wow bounceInDown" data-wow-delay="0.4s">
-          <h2 style="color:#fff">Ponte en contacto con nosotros</h2>
-          </div>
-          <p class="wow lightSpeedIn" data-wow-delay="0.3s">Déja tu información y pronto te estaremos contactando.</p>
-          </div>
           
         </div>
       </div>
@@ -26,58 +19,70 @@
     <div class="container-fluid ">
 
     <div class="row">
-        <div class="col-lg-8 col-md-offset-2">
-            <div class="form-wrapper marginbot-50">
+    
+        <div class="col-lg-2 col-md-2"></div>
+        <div class="col-lg-8 col-md-8">
+            <div class="form-wrapper" style="background: transparent;color:#fff !important;padding:0">
                 <form id="contact-form" ng-submit="enviaFormContacto()">
                 <div class="row">
+
+                      <div class="col-lg-12 col-md-12" style="padding:0"> 
+          
+                        <div class="section-heading">
+                        <div class="wow bounceInDown" data-wow-delay="0.4s">
+                        <h2 style="color:#fff;font-family: 'Roboto'">Ponte en contacto con nosotros</h2>
+                        </div>
+                        <p class="wow lightSpeedIn" data-wow-delay="0.3s">Déja tu información y pronto te estaremos contactando.</p>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-6 col-md-6"> 
                         <div class="form-group">
-                            <label for="name">
+                            <label for="name" style="color:#fff !important">
                                 Nombre</label>
                             <input type="text" ng-click="desactivaError()" class="form-control" name="nombre" id="nombre" ng-model="nombre" placeholder="Escribe tu nombre"/>
                         </div>
+                      </div>  
+                      <div class="col-lg-6 col-md-6"> 
                         <div class="form-group">
-                            <label for="email">
+                            <label for="email" style="color:#fff !important">
                                 Correo electrónico</label>
                                 <input type="email" ng-click="desactivaError()" class="form-control" id="mail" name="mail" ng-model="mail" placeholder="Tu correo electrónico" />
                         </div>
+                      </div>  
+
+                      <div class="col-lg-6 col-md-6"> 
                         <div class="form-group">
-                            <label for="email">
+                            <label for="email" style="color:#fff !important">
                                 Teléfono</label>
                                 <input type="number" ng-click="desactivaError()" class="form-control" id="telefono" name="telefono" ng-model="telefono" placeholder="Tu número telefónico" />
                         </div>
-          
-             
+                      </div>  
+                      
+                      <div class="col-lg-6 col-md-6"> 
                         <div class="form-group">
-                            <label for="name">
+                            <label for="name" style="color:#fff !important">
                                 Mensaje</label>
-                            <textarea ng-click="desactivaError()" id="mensaje" name="mensaje" ng-model="mensaje" class="form-control" rows="9" cols="25" placeholder="Escribe tu mensaje aquí"></textarea>
+                            <input type="text" ng-click="desactivaError()" id="mensaje" name="mensaje" ng-model="mensaje" class="form-control" cols="10" placeholder="Escribe tu mensaje aquí">
                         </div>
-                <div class="form-group">
-                           <div class="alert alert-danger" ng-show='divError'>
-                  <strong>Atenci&oacute;n!</strong><br>{{msgError}}.
-               </div>
+                      </div>
+                      
+                      <div class="col-lg-12 col-md-12">   
+                        <div class="form-group">
+                          <div class="alert alert-danger" ng-show='divError'>
+                          <strong>Atenci&oacute;n!</strong><br>{{msgError}}.
+                       </div>
                         </div>
            
-                        <button type="submit" class="btn btn-skin btn-block" id="btnContactUs">Enviar Mensaje</button>
+                        <center><button type="submit" class="btn  btn-danger" id="btnContactUs">Enviar Mensaje</button></center>
+                      </div>  
        
                 </div>
                 </form>
         
             </div>
-     <!-- <div class="text-center">
-          <?php if($home[0]['telefono2'] != ""){?>
-            <p class="lead"><i class="fa fa-phone"></i> Llámanos 
-            <a href="tel:<?php echo $home[0]['telefono2']?>" onclick="_gaq.push(['_trackEvent', 'Mobile', 'Llamada'])"><?php echo $home[0]['telefono2']?></a>
-            </p><br>
-          <?php }?> 
-          <?php echo $home[0]['horarios']?><br>
-          <a title="sigue a The Cupcakes Store en Instagram" href="https://www.instagram.com/thcupcakesstore/" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/instagram.png" /></a>
-          <a title="sigue a The Cupcakes Store en Twitter" href="https://twitter.com/thcupcakesstore/" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/twitter.png" /></a>
-          <a title="sigue a The Cupcakes Store en Facebook" href="https://www.facebook.com/thcupcakesstore/" target="_blank"><img src="<?php echo _DOMINIO ?>images/diseno/facebook.png" /></a><br><br>
-          
-
-      </div>-->
         </div>
+        <div class="col-lg-2 col-md-2"></div>
 
     </div>  
 
@@ -87,10 +92,27 @@
   <?php } ?>
 <footer style="color:#444 !important;background: #f5f5f5">
     <div class="container">
-      <div class="row"
->        <div class="col-md-2 col-lg-2">
+      <div class="row">        
+
+      <div class="col-md-12 col-lg-12 visible-sm-block visible-xs " class="padding:0;background:#999">
+          <div class="row">
+                <div class="col-md-12 col-lg-12 text-left" class="padding:0">
+                  <center><strong>P&aacute;ginas amigas</strong></center><br>
+                </div>
+                <?php $cont2=0;foreach($amigas as $ami){?>
+                  <div class="col-sm-6 col-xs-6" class="padding:0">
+                  <?php if($ami['link'] != ""){?><a href="<?php echo $ami['link']?>" title="<?php echo $ami['titulo']?>" target="_blank"><?php }?>
+                   <center> <img  style="border-radius: 5px" src="<?php echo _DOMINIO?>images/<?php echo $ami['imagen']?>" width="100%"/></center>
+                  <?php if($ami['link'] != ""){?></a><?php }?>
+                  </div>
+              <?php $cont2++;}?>
+          </div>
+              
+        </div>
+
+        <div class="col-md-2 col-lg-2">
           <img src="<?php echo _DOMINIO ?>images/diseno/logoPie.png" width="100%" class="visible-lg visible-md">
-          <center><img src="<?php echo _DOMINIO ?>images/diseno/logoPie.png" width="50%" class="visible-sm-block visible-xs "></center>
+          <center><img src="<?php echo _DOMINIO ?>images/diseno/logoPie.png" width="50%" class="visible-sm-block visible-xs "></center><br>
         </div>
 
         <div class="col-md-4 col-lg-4 text-left visible-lg visible-md"  style="color:#000" >
@@ -101,13 +123,25 @@
           <span class="small">&copy;Copyright <?php echo date("Y")?> - 
           Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a></span><br>
 
-          <img src="<?php echo _DOMINIO?>images/diseno/facebook.png" width="10%" style="margin:2% 0% 0 0"/>
-          <img src="<?php echo _DOMINIO?>images/diseno/instagram.png" width="10%" style="margin:2% 0% 0 0"/>
+          <a href="https://www.facebook.com/tupanalera.com.co/" target="_blank" title="S&iacute;guenos en Facebook"><img src="<?php echo _DOMINIO?>images/diseno/facebook.png" width="10%" style="margin:2% 0% 0 0"/></a>
+          <a href="https://www.instagram.com/tupanalera/" target="_blank" title="S&iacute;guenos en Instagram"><img src="<?php echo _DOMINIO?>images/diseno/instagram.png" width="10%" style="margin:2% 0% 0 0"/></a>
           </p>
         </div>
 
-        <div class="col-md-6 col-lg-6">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5715698497124!2d-74.05608948477966!3d4.670205396607674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9af4b6a67c6b%3A0x353d24addceeeee8!2sCentro+De+Visado+Uk!5e0!3m2!1ses!2sco!4v1476226646739" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div class="col-md-6 col-lg-6 visible-lg visible-md" class="padding:0">
+          <div class="row">
+                <div class="col-md-12 col-lg-12 text-left" class="padding:0">
+                  <strong>P&aacute;ginas amigas</strong><br>
+                </div>
+                <?php $cont2=0;foreach($amigas as $ami){?>
+                  <div class="col-md-4 col-lg-4" class="padding:0">
+                  <?php if($ami['link'] != ""){?><a href="<?php echo $ami['link']?>" title="<?php echo $ami['titulo']?>" target="_blank"><?php }?>
+                   <center> <img  style="border-radius: 5px" src="<?php echo _DOMINIO?>images/<?php echo $ami['imagen']?>" width="100%"/></center>
+                  <?php if($ami['link'] != ""){?></a><?php }?>
+                  </div>
+              <?php $cont2++;}?>
+          </div>
+              
         </div>
 
 
@@ -119,6 +153,10 @@
           <span class="small">&copy;Copyright <?php echo date("Y")?><br>
           Desarrollado por <a href="https://twitter.com/orugal" target="_blank" style="color:#000">@orugal</a></span>
           </p>
+          <center>
+            <a href="https://www.facebook.com/tupanalera.com.co/" target="_blank" title="S&iacute;guenos en Facebook"><img src="<?php echo _DOMINIO?>images/diseno/facebook.png" width="20%" style="margin:2% 0% 0 0"/></a>
+            <a href="https://www.instagram.com/tupanalera/" target="_blank" title="S&iacute;guenos en Instagram"><img src="<?php echo _DOMINIO?>images/diseno/instagram.png" width="20%" style="margin:2% 0% 0 0"/></a>
+          </center>
         </div>
 
       </div>  
