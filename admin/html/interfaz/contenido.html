@@ -145,10 +145,27 @@ else {?>
 		</tr>
 		<tr>
 			<td>
-				<input type="hidden" name="tipo_contenido" value="<?=$tipo_contenido?>">
+				<?php if($tipo_contenido != 8 or $tipo_contenido != 9 or $tipo_contenido != 61){?>
+					<input type="hidden" name="tipo_contenido" value="<?=$tipo_contenido?>">
+				<?php }?>	
 				<input type="hidden" id="id_padre" name="id_padre" size="53" value="<? echo $id_padre;?>">
 			</td>
 		</tr>
+		<?php if($tipo_contenido == 8 or $tipo_contenido == 9 or $tipo_contenido == 61){?>
+			<tr>
+				<td>
+					Tipo Contenido
+				</td>
+				<td class="celdas">
+					<select id="tipo_id" name="tipo_contenido" onchange="tiposid(this.value)"  class="form-control">
+						<option value="61" <?if($tipo_contenido == 61){echo 'selected';}?>>Categor&iacute;a</option>
+						<option value="10" <?if($tipo_contenido == 10){echo 'selected';}?>>Producto</option>
+					</select>
+				</td>
+			</tr>
+		<?php } ?>
+
+
 		<!--
 		<tr>
 			<td>
