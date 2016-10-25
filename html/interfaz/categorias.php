@@ -40,7 +40,8 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
            <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
                 <div class="row">
                 <?php foreach($hijos as $h){ ?>
-                  <?php if($h['tipo_contenido'] != 10){ ?>
+                  <?php $cont=0;if($h['tipo_contenido'] != 10){ $cont++;?>
+
                     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
                         <div class="panel panel-default">
                           <div class="panel-body text-center">
@@ -51,6 +52,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
                           </div>
                         </div>
                     </div>
+
                   <?php }else{?>  
                     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4" style="position: relative">
                                   <?php if($h['imagen2'] != ""){ ?>
@@ -86,6 +88,10 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
                                 </div>
                   <?php } ?>
 
+                  <?php if($cont == 3){?>
+                      </div>
+                      <div class="row">
+                  <?php ?>
                 <?php } ?>
                 </div>
            </div>  
