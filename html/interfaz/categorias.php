@@ -39,8 +39,8 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
             </div>
            <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
                 <div class="row">
-                <?php foreach($hijos as $h){ ?>
-                  <?php $cont=0;if($h['tipo_contenido'] != 10){ $cont++;?>
+                <?php $cont=0;foreach($hijos as $h){  $cont++;?>
+                  <?php if($h['tipo_contenido'] != 10){?>
 
                     <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
                         <div class="panel panel-default">
@@ -88,10 +88,11 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
                                 </div>
                   <?php } ?>
 
-                  <?php if($cont == 3){?>
+                  <?php if($cont == 3){ $cont=0;?>
                       </div>
                       <div class="row">
-                  <?php ?>
+                  <?php } ?>
+
                 <?php } ?>
                 </div>
            </div>  
