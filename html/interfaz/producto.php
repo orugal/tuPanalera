@@ -13,7 +13,7 @@ $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 $valDef     =   ($info_id[0]['canje'] == 0)?1:1;
 $txtVenta   =   "
 					* El pago del producto se realiza contra entrega.</br>
-					* Si el pedido se realiza en las antes de las 10 AM se entragr&aacute; en las horas de la tarde.</br>
+					* Si el pedido se realiza antes de las 10 AM se entregar&aacute; en las horas de la tarde.</br>
 					* Si el pedido se realiza en las horas de la tarde este se entregar&aacute; al d&iacute;a siguiente en la ma&ntilde;ana.</br>
 					";
 $tieneRelleno	=	($info_id[0]['destacado'] == 1)?1:0;
