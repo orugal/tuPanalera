@@ -742,6 +742,19 @@ class Funciones
 									$mensaje 	=	sprintf("<div style='border:1px solid blue'>Se ha Insertado con exito el nodo <b>%s</b>.</div>",$ultimo_id);
 								break;
 							case 2:
+									//valido si es tipo 10
+									if($_POST['tipo_contenido']==10 or $_POST['tipo_contenido']==21)
+									{
+										$ultimo_id	=	$_GET['id'];
+										//verifico que no esté agregado ya el atributo
+										$queryVerificaAtri = $db->GetAll(sprintf("SELECT * FROM atributos WHERE producto=%s",$ultimo_id));
+										if(count($queryVerificaAtri) == 0)
+										{
+										//lo inserto en la tabla de relacion
+											$query_insert_nuevo	=	$db->Execute(sprintf("INSERT INTO atributos (producto) VALUES('%s')",$ultimo_id))or die(sprintf("INSERT INTO atributos (producto) VALUES('%s')",$db->Insert_ID()));
+										}
+										
+									}
 									$mensaje 	=	sprintf("<div style='border:1px solid blue'>Se ha Actualizado con exito.</div>");
 								break;	
 								
