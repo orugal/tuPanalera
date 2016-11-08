@@ -1,5 +1,7 @@
 RewriteEngine On
 #ErrorDocument 404 /noPage.php
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
 # Maquillando las url
 RewriteRule ^home$ index.php
