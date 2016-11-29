@@ -384,6 +384,7 @@ class Funciones
 								  "largo"=>$result->fields['largo'],
 								  "profundidad"=>$result->fields['profundidad'],
 								  "puntos"=>$result->fields['puntos'],
+								  //"hijos"=>$this->obtenerListado($result->fields['id']),
 								  "canje"=>$result->fields['canje'],
 								  "puntoscanje"=>$result->fields['puntoscanje'],
 								  "destacado"=>$result->fields['destacado'],
@@ -1373,13 +1374,47 @@ class Funciones
 	function getCar($pedido)
 	{
 		global $db;
-		$query = sprintf("select p.canje,p.titulo,p.precio_normal,p.precio_oferta,p.imagen,c.relleno_id,c.fecha,c.cantidad,c.producto_id,c.				   usuario_id,c.id_pedido,c.id_compra from 
+		$query = sprintf("select p.canje,p.titulo,p.precio_normal,p.precio_oferta,p.imagen,c.relleno_id,c.fecha,c.cantidad,c.producto_id,c.usuario_id,c.id_pedido,c.id_compra from 
 							carrito c
 							inner join principal p on p.id=c.producto_id
 							inner join pedidos pe on pe.id_pedido=c.id_pedido
 							WHERE c.id_pedido=%s AND c.eliminado=0",$pedido);
 		$result = $db->GetAll($query);
 		return $result;
+	}
+	function getCarN($pedido)
+	{
+		global $db;
+		$query = sprintf("select p.canje,p.titulo,p.precio_normal,p.precio_oferta,p.imagen,c.relleno_id,c.fecha,c.cantidad,c.producto_id,c.usuario_id,c.id_pedido,c.id_compra from 
+							carrito c
+							inner join principal p on p.id=c.producto_id
+							inner join pedidos pe on pe.id_pedido=c.id_pedido
+							WHERE c.id_pedido=%s AND c.eliminado=0",$pedido);
+		$result = $db->GetAll($query);
+
+		$datos = array();
+		//recorro
+		foreach($result as $r)
+		{
+			$infoPresent	=	$this->infoId($r['relleno_id']);
+			$dataCarro =  array("canje"=>$r['canje'],
+								"titulo"=>$r['titulo']." - ".$infoPresent[0]['titulo'],
+								"precio_normal"=>$infoPresent[0]['precio_normal'],
+								"precio_oferta"=>$infoPresent[0]['precio_oferta'],
+								"presentacion"=>$infoPresent[0]['titulo'],
+								"imagen"=>$r['imagen'],
+								"relleno_id"=>$r['relleno_id'],
+								"fecha"=>$r['fecha'],
+								"cantidad"=>$r['cantidad'],
+								"producto_id"=>$r['producto_id'],
+								"usuario_id"=>$r['usuario_id'],
+								"id_pedido"=>$r['id_pedido'],
+								"id_compra"=>$r['id_compra'],
+								"id_compra"=>$r['id_compra'],
+								);
+			array_push($datos,$dataCarro);
+		}	
+		return $datos;
 	}
 	function generacodigo()
 	{

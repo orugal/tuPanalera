@@ -10,7 +10,7 @@ global $core;
 global $id;
 $info_id	=	$core->info_id;
 $hijos		=	$core->info_id_hijos;
-$pedido 	=	$funciones-> getCar($_SESSION['carrito']['pedido']);
+$pedido 	=	$funciones-> getCarN($_SESSION['carrito']['pedido']);
 
 $resursiva 	=	$funciones->BusquedaRecursiva($id,array());
 ?>

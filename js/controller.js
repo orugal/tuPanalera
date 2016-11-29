@@ -183,6 +183,9 @@ home.controller('carritoFunction', function($scope,$http,$q,logica)
 		/*setTimeout(function(){
 			alert($scope.dataCarrito);
 		},1000);*/	
+
+		$scope.cargaPrecioDefault();
+		$scope.relleno = $("#relleno").val();
 		
 	}
 	$scope.login = function()
@@ -430,6 +433,40 @@ home.controller('carritoFunction', function($scope,$http,$q,logica)
 		 }
 		 );
 	}
+
+	$scope.cargaPrecioDefault = function()
+	{
+		$scope.changeDataProducto();
+	}
+	$scope.changeDataProducto = function()
+	{
+		var idPre = $("#relleno").val();
+		//alert(idPre);
+		//por ajax consulto el precio que seleccione
+
+		$.ajax({
+		    url: dominio+"php/carrito.php",
+		    data: "accion=8&id="+idPre,
+		    type: "POST",
+		    dataType: "json",
+		    success:function(json)
+		    {
+		    	var precioNuevo  = json.datos.precio_normal;
+		    		if(json.datos.precio_oferta != "" && json.datos.precio_oferta != "0")
+		    		{
+						precioNuevo += ' <span class="small" style="text-decoration: line-through;">'+json.datos.precio_oferta+'</span>';
+					}
+				$("#precioProducto").html(precioNuevo);
+		    },
+		    error:function(e) 
+		    {
+		        swal("Oops...","Parece que ha habido un error interno, intenta de nuevo más tarde","error");
+		    }
+		});
+
+		
+	}
+
 	$scope.addToCar = function()
 	{
 		var continua = false;

@@ -36,7 +36,7 @@ if(isset($accion))
 	}
 	elseif($accion == 2)//lee carrito
 	{
-		$carritoData = $funciones->getCar($_SESSION['carrito']['pedido']);
+		$carritoData = $funciones->getCarN($_SESSION['carrito']['pedido']);
 		//echo count($carritoData);
 		if(isset($_SESSION['carrito']['pedido']))
 		{
@@ -224,7 +224,7 @@ if(isset($accion))
 		{
 
 			//debo enviar un mensaje al administrador de la página web para que sepa de los pedidos
-			$infoPedido 	=	$funciones->getCar($_SESSION['carrito']['pedido']);
+			$infoPedido 	=	$funciones->getCarN($_SESSION['carrito']['pedido']);
 			$asunto  = "Se ha realizado un pedido en "._NOMBRE_EMPRESA_MAIL;
 			$mensaje  = "Se ha realizado un pedido desde la tienda virtual de "._NOMBRE_EMPRESA_MAIL.".<br><br>";
 			$mensaje .= "<strong>Datos de la persona:</strong><br><br>";
@@ -249,6 +249,56 @@ if(isset($accion))
 						"datos"=>array(),
 						"continuar"=>0);
 		}
+	}
+	elseif($accion == 8)//consulto info del precio
+	{
+		$query  = $db->GetAll(sprintf("SELECT * FROM principal WHERE id=%s",$id));
+
+		$precios = array("precio_normal"=>(trim($query[0]['precio_normal']) != "" or trim($query[0]['precio_normal']) != 0)?"$".number_format(trim($query[0]['precio_normal']),0,",","."):"$0",
+						 "precio_oferta"=>(trim($query[0]['precio_oferta']) != "" or trim($query[0]['precio_oferta']) != 0)?"$".number_format(trim($query[0]['precio_oferta']),0,",","."):"0");
+
+		$salida = array("mensaje"=>"Error interno, opcion no valida, intente de nuevo más tarde.",
+					"datos"=>$precios,
+					"continuar"=>1);
+	}
+	elseif($accion == 9)//exportar a excel los productos con sus presentaciones
+	{
+		$query = $db->GetAll(sprintf("SELECT * FROM principal WHERE tipo_contenido=10 AND eliminado=0 AND visible=1"));
+		$tabla = "<table width='100%'>";
+		$tabla .= "<tr style='background:#999'>";
+			$tabla .= "<td><strong>CONSECUTIVO</strong></td>";
+			$tabla .= "<td><strong>TITULO</strong></td>";
+			$tabla .= "<td><strong>PRECIO NORMAL</strong></td>";
+			$tabla .= "<td><strong>PRECIO ANTES</strong></td>";
+		$tabla .= "</tr>";
+		foreach($query as $r)
+		{
+			//consulto los hijos
+			$hijos = $funciones->obtenerListado($r['id'],'',5000);
+			$tabla .= "<tr style='background:#999'>";
+				$tabla .= "<td><strong>".$r['id']."</strong></td>";
+				$tabla .= "<td><strong>".$r['titulo']."</strong></td>";
+				$tabla .= "<td>-----</td>";
+				$tabla .= "<td>-----</td>";
+			$tabla .= "</tr>";
+			foreach($hijos as $h)
+			{
+				$tabla .= "<tr>";
+					$tabla .= "<td>".$h['id']."</td>";
+					$tabla .= "<td>".$h['titulo']."</td>";
+					$tabla .= "<td></td>";
+					$tabla .= "<td></td>";
+				$tabla .= "</tr>";
+			}
+		}
+		$tabla .= "</table>";
+		//die("dsaknfkjas");
+		header("Content-Type: application/vnd.ms-excel");
+		header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("content-disposition: attachment;filename=productos.xls");
+		echo $tabla;
+		die();
 	}
 	else
 	{

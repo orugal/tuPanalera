@@ -21,6 +21,7 @@ $tieneRelleno	=	($info_id[0]['destacado'] == 1)?1:0;
 
 
 $queryAtributos = $db->GetAll(sprintf("SELECT * FROM atributos WHERE producto = %s",$id));
+$queryPresentaciones  = $db->GetAll(sprintf("SELECT * FROM principal WHERE id_padre = %s",$id));
 
 //para las presentaciones
 
@@ -60,6 +61,7 @@ $presentaciones[5][] = "Talla 12";*/
 
 ?>
 <div class="container-fluid" >
+<div class="container-fluid" >
 	<div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
@@ -94,11 +96,13 @@ $presentaciones[5][] = "Talla 12";*/
        		  </div>
        		  <div class="col-sm-12 col-xs-12 col-md-8 col-lg-8">
        		  	<h2 style="padding: 0;margin: 0 0 2% 0"><?php echo $info_id[0]['titulo'] ?></h2>
-       		  	<h3 style="padding: 0;color:#fd4365">
-       		  		$<?php echo number_format($info_id[0]['precio_normal'],0,",",".") ?>
+       		  	<h3 style="padding: 0;color:#fd4365" id="precioProducto">
+
+       		  		<!--$<?php echo number_format($info_id[0]['precio_normal'],0,",",".") ?>
        		  		<?php if($info_id[0]['precio_oferta']!= ""or $info_id[0]['precio_oferta'] != 0){ ?>
        		  		<span class="small" style="text-decoration: line-through;">$<?php echo number_format($info_id[0]['precio_oferta'],0,",",".") ?></span>
-       		  		<?php } ?>
+       		  		<?php } ?>-->
+
        		  	</h3>
        		  	<p><?php echo $info_id[0]['resumen'] ?></p>
        		  	<span class="small"><?php echo $txtVenta ?></span><br><br>
@@ -106,10 +110,10 @@ $presentaciones[5][] = "Talla 12";*/
        		  			<div class="row">
        		  				<div class="col-xs-12 col-sm-12 col-lg-3 col-md-3">
 			                      <label for="name">Presentaci&oacute;n</label><br>
-					       		  <select name="relleno" id="relleno" ng-model="relleno" class="form-control" style="float: left;width: auto">
-					       		  		<option value="">Seleccione...</option>
-					       		  		<?php foreach($presentaciones as $pres){ ?>
-					       		  			<option value="<?php echo $pres ?>"><?php echo $pres ?></option>
+					       		  <select name="relleno" id="relleno" ng-model="relleno" class="form-control" style="float: left;width: auto" ng-change="changeDataProducto()">
+					       		  		<!--<option value="">Seleccione...</option>-->
+					       		  		<?php foreach($queryPresentaciones as $pres){ ?>
+					       		  			<option value="<?php echo $pres['id'] ?>"><?php echo $pres['titulo'] ?></option>
 					       		  		<?php } ?>
 					       		  </select>
        		  				</div>
@@ -142,3 +146,4 @@ $presentaciones[5][] = "Talla 12";*/
 	var tieneRelleno  = <?php echo $tieneRelleno ?>;
 	var idProducto    = <?php echo $id ?>
 </script>
+</div>

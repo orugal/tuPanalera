@@ -45,7 +45,7 @@ $rellenos[6]	=	"Salsa de piña";
         	{ 
         		$bg		 = (($cont%2) == 0)?"#f6f6f6":"#fff";
         		$dataPed = infoPedido($ped['pedido']);
-        		$items	 = $funciones->getCar($ped['pedido']);
+        		$items	 = $funciones->getCarN($ped['pedido']);
         		if ($dataPed[0]['estTrans'] == 4 ) {
 						$estadoTx = "Transacción aprobada";
 						$color    =  "text-success";

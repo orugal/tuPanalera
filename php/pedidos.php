@@ -68,7 +68,7 @@ $pedidosUsuario = $db->GetAll(sprintf("SELECT DISTINCT(c.id_pedido) as pedido
         <?php if(count($pedidosUsuario) > 0){ ?>
         	<?php foreach($pedidosUsuario as $ped)
         	{ 
-        		$pedido 	=	$funciones->getCar($ped['pedido']);
+        		$pedido 	=	$funciones->getCarN($ped['pedido']);
 
         		$dataPed = infoPedido($ped['pedido']);
         		if ($dataPed[0]['estTrans'] == 4 ) {

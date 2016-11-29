@@ -193,12 +193,13 @@ function tiposid(id)
 		document.getElementById('imagen1_preview').style.display = '';
 		document.getElementById('imagen2').style.display = '';
 		document.getElementById('mostrar_imagen2').style.display = '';
-		document.getElementById('precio_normal').style.display =	'';
-		document.getElementById('precio_oferta').style.display =	'';
+		//document.getElementById('precio_normal').style.display =	'';
+		//document.getElementById('precio_oferta').style.display =	'';
 		document.getElementById('promocion').style.display = '';
 		document.getElementById('destacado').style.display = '';
 
-		document.getElementById('atributos').style.display = '';
+		document.getElementById('categorias_asign').style.display = '';
+		//document.getElementById('atributos').style.display = '';
 		document.getElementById('profundidad').style.display = '';
 		//document.getElementById('canje').style.display = '';
 	}
@@ -1122,4 +1123,114 @@ function ponerCont(id,caja,texto)
 	document.getElementById('text'+caja).style.display='none';
 	document.getElementById('oculta'+caja).value=id;
 	document.getElementById(caja).value=texto;
+}
+function nuevaPresentacion(id)
+{
+	var aleator = getRandomArbitrary(100000000,999999999);
+	var tabla = '<tr class="filasPresent nueva" id="fila'+aleator+'" rel="'+aleator+'">';
+		tabla += '	<td align="center">';
+		tabla += '		<input type="text" id="titulo'+aleator+'" class="form-control" value="" placeholder="Escribe el nombre de la presentaci&oacute;n"/>';
+		tabla += '	</td>';
+		tabla += '	<td align="center">';
+		tabla += '		<input type="text" id="costo'+aleator+'" class="form-control" value="" placeholder="Escribe el costo"/>';
+		tabla += '	</td>';
+		tabla += '	<td align="center">';
+		tabla += '		<input type="text" id="costo2'+aleator+'" class="form-control" value="" placeholder="Escribe el costo en oferta"/>';
+		tabla += '	</td>';
+		tabla += '	<td align="center">';
+		tabla += '		<button type="button" class="btn btn-danger glyphicon glyphicon-trash" onclick="borrarPresentacion('+aleator+')"></button>';
+		tabla += '	</td>';
+		tabla += '</tr>';
+	$("#presentacionesTable").append(tabla);
+}
+function borrarPresentacion(id)
+{
+	if(confirm("Est\u00E0 seguro que desea borrar esta presentaci\u00F3n"))
+	{
+		$("#fila"+id).remove();
+	}
+	else
+	{
+		return false;
+	}
+}
+function borrarPresentacionAntigua(id)
+{
+	if(confirm("Est\u00E0 seguro que desea borrar esta presentaci\u00F3n"))
+	{
+		$.ajax({
+	        type: "POST",
+	        url: "externos/ajax.php",
+	        data: "accion=3&id="+id,
+	        dataType:"json",
+	        beforeSend: function(objeto){
+	        	
+	        },
+	        success: function(respuesta)
+	        {
+				$("#fila"+id).remove();
+				//location.reload()
+	      	},
+	      	error: function (var1,var2,var3){
+	      		
+	      	}
+		});
+	}
+	else
+	{
+		return false;
+	}
+}
+function guardarPresentacion(idPadre)
+{
+	var el = $(".filasPresent");
+	var cantCeldas = el.length;
+	var contador = 0;
+
+	$.each(el,function(){
+		//valido si es nueva o antigua
+		var elementoActual = $(this);
+		var identificador  = elementoActual.attr("rel");
+		var titulo		   = $("#titulo"+identificador).val();
+		var costo		   = $("#costo"+identificador).val();
+		var costoof		   = $("#costo2"+identificador).val();
+		if($(this).hasClass("nueva"))
+		{
+			var parametros = "accion=2"+"&titulo="+titulo+"&costoo="+costoof+"&costo="+costo+"&id="+identificador+"&idPadre="+idPadre+"&acc=nueva";		
+		}
+		else if($(this).hasClass("antigua"))
+		{
+			
+			var parametros = "accion=2"+"&titulo="+titulo+"&costoo="+costoof+"&costo="+costo+"&id="+identificador+"&idPadre="+idPadre+"&acc=edita";
+		}	
+
+		//realizo la inserción ó la actualización según sea el caso
+		$.ajax({
+	        type: "POST",
+	        url: "externos/ajax.php",
+	        data: parametros,
+	        dataType:"json",
+	        beforeSend: function(objeto){
+	        	
+	        },
+	        success: function(respuesta)
+	        {
+	        	contador++;
+	        	//alert(contador+" - "+cantCeldas);
+	        	if(contador == cantCeldas)
+				{
+					alert("Las presentaciones se han agregado de manera correcta.")
+					location.reload();
+				}
+	      	},
+	      	error: function (var1,var2,var3){
+	      		
+	      	}
+		});
+
+
+	});
+}
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }

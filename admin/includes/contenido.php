@@ -18,6 +18,8 @@ if(isset($_SESSION['login']))
 $query_sites	=	$funciones->infoId($_SESSION['login']['telefono']);
 
 $info_id		=	$funciones->infoId($id);
+$hijosNodoActual	= $funciones->obtenerListado($id,'',20);
+
 $fecha			=	date("Y-m-d H:i:s");
 //listado de marcas
 $marcas			=	$funciones->consultaUniversal('principal','id_padre=10 ORDER BY marca ASC');

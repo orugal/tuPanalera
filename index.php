@@ -1,5 +1,6 @@
 <?php
 ini_set("display_errors",0);
+die("dasdasd");
 session_start();
 //$_SESSION['ingreso']	=	1;
 //valido si se dio la orden de cerrar session

@@ -997,46 +997,65 @@ else {?>
 		<tr id="categorias_asign">
 			<td colspan="2" align="center">
 			<?if($tipo_contenido == 10 and $editar	==	true or $tipo_contenido == 21 and $editar	==	true){?>
-				<table width="100%">
-				<tr style='background:#999;color:#fff'>
-					<td colspan="2" align="center">
-						<b>CATEGORIAS ASIGNADAS A ESTE PRODUCTO</b>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<div id="mensaje">
-							
-						</div>
-					</td>
-				</tr>
-				<tr style='background:#999;color:#fff'>
-					<td align="center">
-						<b>LINEA</b>
-					</td>
-					<td align="center">
-						<b>ACCI&Oacute;N</b>
-					</td>
-				</tr>
-				<?
-					$contador	=	0;
-					foreach($info_categorias as $data)
-					{
-						if(($contador%2)==0)
-						{
-							echo "<tr id='div".$data['id']."' style='background:#EAF3C5'>";
-						}
-						else
-						{
-							echo "<tr id='div".$data['id']."' style='background:#E2E2E2'>";
-						}
-						echo	"<td align='center'><b>".$data['titulo']."</b></td>
-									<td align='center'><a href='#div".$data['id']."' onClick='asignaCategoria(".$id.",".$data['id'].",0)'>Eliminar</a></td>
-								</tr>
-								";
-						$contador++;
-					}
-				?>
+				<table width="100%" class="table">
+					<thead>
+						<tr>
+							<th colspan="3" class="text-center">
+								<h4>PRESENTACIONES DEL PRODUCTO</h4>
+							</th>
+							<th class="text-center">
+								<button type="button" class="btn btn-primary glyphicon glyphicon-plus" title="Nueva presentaci&oacute;n para el producto" onclick="nuevaPresentacion(<?php echo $id?>)"></button>
+							</th>
+						</tr>
+						<tr>
+							<th colspan="4">
+								<div id="mensaje">
+									
+								</div>
+							</th>
+						</tr>
+						<tr>
+							<th class="text-center">
+								<b>PRESENTACI&Oacute;N</b>
+							</th>
+							<th class="text-center">
+								<b>PRECIO ACTUAL</b>
+							</th>
+							<th class="text-center">
+								<b>PRECIO ANTES</b>
+							</th>
+							<th class="text-center">
+								<b>ACCI&Oacute;N</b>
+							</th>
+						</tr>
+					</thead>
+					<tbody id="presentacionesTable">
+						<?php foreach($hijosNodoActual as $hijitos){?>
+							<tr  class="filasPresent antigua" id="fila<?php echo $hijitos['id']?>" rel="<?php echo $hijitos['id']?>">
+								<td align="center">
+									<input type="text" id="titulo<?php echo $hijitos['id']?>" class="form-control" value="<?php echo $hijitos['titulo']?>"/>
+								</td>
+								<td align="center">
+									<input type="text" id="costo<?php echo $hijitos['id']?>" class="form-control" value="<?php echo $hijitos['precio_normal']?>"/>
+								</td>
+								<td align="center">
+									<input type="text" id="costo2<?php echo $hijitos['id']?>" class="form-control" value="<?php echo $hijitos['precio_oferta']?>"/>
+								</td>
+								<td align="center">
+									<button type="button" class="btn btn-danger glyphicon glyphicon-trash" onclick="borrarPresentacionAntigua(<?php echo $hijitos['id']?>)"></button>
+								</td>
+							</tr>
+						<?php }?>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="4" class="text-center">
+								<button type="button" class="btn btn-primary" title="Nueva presentación para el producto" onclick="guardarPresentacion(<?php echo $id?>)">
+									GUARDAR PRESENTACIONES
+								</button>
+							</th>
+						</tr>
+					</tfoot>
 				</table>
 				<?}?>
 			</td>
@@ -1087,5 +1106,5 @@ else {?>
 	</table>
 </form>
 <!-- En esta parte se llama la funcion que muestra y oculta campos segun el tipo de nodo, esto es para la persistecia-->
-<script>tiposid(<?echo $tipo_contenido;?>)</script>
+<script>tiposid(<?php echo $tipo_contenido;?>)</script>
 <?}?>
